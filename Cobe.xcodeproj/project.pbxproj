@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		47A195A929000A7C00973B87 /* ServiceFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A195A829000A7C00973B87 /* ServiceFactory.swift */; };
+		47A195AB29000A8B00973B87 /* DataServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A195AA29000A8B00973B87 /* DataServiceError.swift */; };
+		47A195AD29000AA200973B87 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A195AC29000AA200973B87 /* DataService.swift */; };
+		47A195AF29000AB700973B87 /* DataServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A195AE29000AB700973B87 /* DataServiceProtocol.swift */; };
+		47A195B229000D5A00973B87 /* ShowsAPIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A195B129000D5A00973B87 /* ShowsAPIResponse.swift */; };
+		47A195B429000D6700973B87 /* ShowsAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A195B329000D6700973B87 /* ShowsAPIService.swift */; };
+		47A195B629000D7600973B87 /* ShowsApiServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A195B529000D7600973B87 /* ShowsApiServiceProtocol.swift */; };
+		47A195B829000D8300973B87 /* ShowsAPIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A195B729000D8200973B87 /* ShowsAPIError.swift */; };
 		47D44C7028FEA62D003E51F3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D44C6F28FEA62D003E51F3 /* AppDelegate.swift */; };
 		47D44C7228FEA62D003E51F3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D44C7128FEA62D003E51F3 /* SceneDelegate.swift */; };
 		47D44C7428FEA62D003E51F3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D44C7328FEA62D003E51F3 /* ViewController.swift */; };
@@ -30,6 +38,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		47A195A829000A7C00973B87 /* ServiceFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceFactory.swift; sourceTree = "<group>"; };
+		47A195AA29000A8B00973B87 /* DataServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataServiceError.swift; sourceTree = "<group>"; };
+		47A195AC29000AA200973B87 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		47A195AE29000AB700973B87 /* DataServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataServiceProtocol.swift; sourceTree = "<group>"; };
+		47A195B129000D5A00973B87 /* ShowsAPIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowsAPIResponse.swift; sourceTree = "<group>"; };
+		47A195B329000D6700973B87 /* ShowsAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowsAPIService.swift; sourceTree = "<group>"; };
+		47A195B529000D7600973B87 /* ShowsApiServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowsApiServiceProtocol.swift; sourceTree = "<group>"; };
+		47A195B729000D8200973B87 /* ShowsAPIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowsAPIError.swift; sourceTree = "<group>"; };
 		47D44C6C28FEA62D003E51F3 /* Cobe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cobe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		47D44C6F28FEA62D003E51F3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		47D44C7128FEA62D003E51F3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -65,6 +81,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		47A195A729000A7400973B87 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				47A195AA29000A8B00973B87 /* DataServiceError.swift */,
+				47A195AC29000AA200973B87 /* DataService.swift */,
+				47A195AE29000AB700973B87 /* DataServiceProtocol.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		47A195B029000D4300973B87 /* ShowApi */ = {
+			isa = PBXGroup;
+			children = (
+				47A195B129000D5A00973B87 /* ShowsAPIResponse.swift */,
+				47A195B329000D6700973B87 /* ShowsAPIService.swift */,
+				47A195B529000D7600973B87 /* ShowsApiServiceProtocol.swift */,
+				47A195B729000D8200973B87 /* ShowsAPIError.swift */,
+			);
+			path = ShowApi;
+			sourceTree = "<group>";
+		};
 		47D44C6328FEA62D003E51F3 = {
 			isa = PBXGroup;
 			children = (
@@ -154,6 +191,9 @@
 		47D44C8828FEA6C1003E51F3 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				47A195A829000A7C00973B87 /* ServiceFactory.swift */,
+				47A195A729000A7400973B87 /* Data */,
+				47A195B029000D4300973B87 /* ShowApi */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -236,18 +276,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				47A195B829000D8300973B87 /* ShowsAPIError.swift in Sources */,
 				47D44CA128FEB706003E51F3 /* FavoritesViewModel.swift in Sources */,
+				47A195B629000D7600973B87 /* ShowsApiServiceProtocol.swift in Sources */,
 				47D44C9928FEACF2003E51F3 /* SearchViewModel.swift in Sources */,
+				47A195AB29000A8B00973B87 /* DataServiceError.swift in Sources */,
 				47D44C9D28FEAE03003E51F3 /* SearchCoordinator.swift in Sources */,
 				47D44C9728FEACE3003E51F3 /* SearchView.swift in Sources */,
 				47D44C8B28FEA6DE003E51F3 /* RootCoordinator.swift in Sources */,
 				47D44C9F28FEB6F7003E51F3 /* FavoritesView.swift in Sources */,
+				47A195B429000D6700973B87 /* ShowsAPIService.swift in Sources */,
 				47D44C7428FEA62D003E51F3 /* ViewController.swift in Sources */,
 				47D44C9528FEA744003E51F3 /* HomeCoordinator.swift in Sources */,
 				47D44C9128FEA730003E51F3 /* HomeViewModel.swift in Sources */,
+				47A195B229000D5A00973B87 /* ShowsAPIResponse.swift in Sources */,
 				47D44C9B28FEAD6D003E51F3 /* SearchViewController.swift in Sources */,
 				47D44CA328FEB710003E51F3 /* FavoritesViewController.swift in Sources */,
+				47A195AF29000AB700973B87 /* DataServiceProtocol.swift in Sources */,
 				47D44C9328FEA739003E51F3 /* HomeViewController.swift in Sources */,
+				47A195A929000A7C00973B87 /* ServiceFactory.swift in Sources */,
+				47A195AD29000AA200973B87 /* DataService.swift in Sources */,
 				47D44C8D28FEA6F8003E51F3 /* Coordinator.swift in Sources */,
 				47D44C8F28FEA725003E51F3 /* HomeView.swift in Sources */,
 				47D44C7028FEA62D003E51F3 /* AppDelegate.swift in Sources */,
