@@ -89,6 +89,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		47438A6129019468003419B5 /* Details */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Details;
+			sourceTree = "<group>";
+		};
 		474C62D52901480F00795656 /* ScheduleApi */ = {
 			isa = PBXGroup;
 			children = (
@@ -200,9 +207,10 @@
 			isa = PBXGroup;
 			children = (
 				47D44C8A28FEA6DE003E51F3 /* RootCoordinator.swift */,
-				47D44C8528FEA673003E51F3 /* Favorites */,
-				47D44C8428FEA660003E51F3 /* Search */,
 				47D44C8628FEA698003E51F3 /* Home */,
+				47D44C8428FEA660003E51F3 /* Search */,
+				47D44C8528FEA673003E51F3 /* Favorites */,
+				47438A6129019468003419B5 /* Details */,
 			);
 			path = UI;
 			sourceTree = "<group>";

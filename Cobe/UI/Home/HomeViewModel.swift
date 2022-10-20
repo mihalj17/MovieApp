@@ -10,9 +10,14 @@ import Foundation
 
 final class HomeViewModel: ObservableObject{
     private let getAllShows: ShowsAPIServiceProtocol
+    private let getScheduleShows: ScheduleAPIServiceProtocol
+    
     @Published  var movies = [ShowsAPIResponse]()
-    init(getAllShows: ShowsAPIServiceProtocol){
+    @Published var scheduleMovies = [ScheduleAPIResponse]()
+    init(getAllShows: ShowsAPIServiceProtocol, getScheduleShows: ScheduleAPIServiceProtocol){
         self.getAllShows = getAllShows
+        self.getScheduleShows = getScheduleShows
+        
     }
    
     func show(){
@@ -22,12 +27,24 @@ final class HomeViewModel: ObservableObject{
             case .success(let response):
                let movie = response
                 self.movies.append(contentsOf: movie)
-                print(self.movies)
             case.failure(let error):
                 print("error \(error.localizedDescription)")
             }
         }
         }
+        
+        getScheduleShows.fetchShow { result in
+            DispatchQueue.main.async {
+                switch(result){
+                case .success(let response):
+                    let scheduleShow = response
+                    self.scheduleMovies.append(contentsOf: scheduleShow)
+                case .failure(let error):
+                    print("error \(error.localizedDescription)")
+                }
+            }
+        }
+        
     }
     
    

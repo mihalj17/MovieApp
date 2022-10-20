@@ -30,7 +30,7 @@ class HomeCoordinator: Coordinator {
     }
     
     private func makeViewController(with tabBarItem: UITabBarItem) -> UIViewController {
-        let vm = HomeViewModel(getAllShows: ShowsAPIService())
+        let vm = HomeViewModel(getAllShows: ShowsAPIService(),getScheduleShows: ScheduleAPIService())
         let vc = UIHostingController(rootView: HomeView(viewModel: vm))
         vc.tabBarItem = tabBarItem
         return vc

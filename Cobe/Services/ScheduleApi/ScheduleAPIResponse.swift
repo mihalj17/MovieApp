@@ -9,18 +9,20 @@ import Foundation
 import SwiftUI
 
 struct ScheduleAPIResponse: Identifiable, Codable{
-  let id: Int
-  let name: String
-  let summary: String
-  let image: Photo
-    let rating: Rating
     
-  struct Photo: Codable {
-    let medium: URL?
-    let original: URL?
+    let id: Int
+    let airdate: String
+    let airtime: String
+    let show: Show
     
-  }
-    struct Rating: Codable{
-        let average: Double?
+    struct Show:Codable{
+        let name: String
+        let image: Image?
+        
+    }
+    
+    struct Image: Codable{
+        let original: URL?
+        let medium: URL?
     }
 }

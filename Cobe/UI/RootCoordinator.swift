@@ -29,7 +29,7 @@ class RootCoordinator: Coordinator {
     
     func setupTabBarController(){
         tabBarController.tabBar.tintColor = .yellow
-        tabBarController.tabBar.backgroundColor = .darkGray
+        tabBarController.tabBar.backgroundColor = UIColor(red: 0.11, green: 0.11, blue: 0.11, alpha: 1.00)
         tabBarController.tabBar.barTintColor = .lightGray
         
         

@@ -10,7 +10,7 @@ import SwiftUI
 
 class HomeViewController: UIViewController {
 
-    var contentView = UIHostingController(rootView: HomeView(viewModel: .init(getAllShows: ShowsAPIService())))
+    var contentView = UIHostingController(rootView: HomeView(viewModel: .init(getAllShows: ShowsAPIService(),getScheduleShows:ScheduleAPIService())))
     var viewModel: HomeViewModel
     
     init(viewModel: HomeViewModel) {
