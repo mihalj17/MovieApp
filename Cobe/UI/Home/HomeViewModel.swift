@@ -14,7 +14,7 @@ final class HomeViewModel: ObservableObject{
     init(getAllShows: ShowsAPIServiceProtocol){
         self.getAllShows = getAllShows
     }
-    
+   
     func show(){
         getAllShows.fetchShow{ result in
             DispatchQueue.main.async {

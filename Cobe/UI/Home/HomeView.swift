@@ -1,9 +1,3 @@
-//
-//  HomeView.swift
-//  Cobe
-//
-//  Created by Matko Mihaljl on 18.10.2022..
-//
 
 import SwiftUI
 
@@ -68,7 +62,6 @@ struct HomeView_Previews: PreviewProvider {
 
 struct MovieCardView: View {
     var show: ShowsAPIResponse
-    let darkGray = UIColor.init(named: "1c1b1b")
     var body: some View {
         VStack() {
             VStack{
@@ -76,9 +69,9 @@ struct MovieCardView: View {
                 image.resizable().scaledToFit()
             } placeholder: {
                 Color.gray
-                    .padding()
+                
             }
-            .frame(width: .infinity, height: .infinity)
+            
             
             }
             
@@ -88,23 +81,25 @@ struct MovieCardView: View {
                         .foregroundColor(.yellow)
                 
                     Text("\(show.rating.average ?? 5.0)")
-                        .foregroundColor(.white)
+                        .foregroundColor(.gray)
                       Spacer()
                 }
                 HStack(){
                 Text(show.name)
                     .tint(Color.white)
                     .padding(.trailing)
-                    .foregroundColor(.white)
+                    .foregroundColor(.gray)
                     .multilineTextAlignment(.leading)
                     .font(.headline)
                 Spacer()
                 }
             }
-            .background()
+            
         }
+        .background(Color("DarkGray"))
         
         
     }
 }
+
 

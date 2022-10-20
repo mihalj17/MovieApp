@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		474C62DB2901486B00795656 /* ScheduleApiServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474C62DA2901486B00795656 /* ScheduleApiServiceProtocol.swift */; };
+		474C62DD2901488000795656 /* ScheduleAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474C62DC2901488000795656 /* ScheduleAPIService.swift */; };
+		474C62DF2901488C00795656 /* ScheduleAPIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474C62DE2901488C00795656 /* ScheduleAPIError.swift */; };
+		474C62E329014B9B00795656 /* ScheduleAPIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474C62E229014B9A00795656 /* ScheduleAPIResponse.swift */; };
 		47A195A929000A7C00973B87 /* ServiceFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A195A829000A7C00973B87 /* ServiceFactory.swift */; };
 		47A195AB29000A8B00973B87 /* DataServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A195AA29000A8B00973B87 /* DataServiceError.swift */; };
 		47A195AD29000AA200973B87 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A195AC29000AA200973B87 /* DataService.swift */; };
@@ -38,6 +42,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		474C62DA2901486B00795656 /* ScheduleApiServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleApiServiceProtocol.swift; sourceTree = "<group>"; };
+		474C62DC2901488000795656 /* ScheduleAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleAPIService.swift; sourceTree = "<group>"; };
+		474C62DE2901488C00795656 /* ScheduleAPIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleAPIError.swift; sourceTree = "<group>"; };
+		474C62E229014B9A00795656 /* ScheduleAPIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleAPIResponse.swift; sourceTree = "<group>"; };
 		47A195A829000A7C00973B87 /* ServiceFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceFactory.swift; sourceTree = "<group>"; };
 		47A195AA29000A8B00973B87 /* DataServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataServiceError.swift; sourceTree = "<group>"; };
 		47A195AC29000AA200973B87 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
@@ -81,6 +89,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		474C62D52901480F00795656 /* ScheduleApi */ = {
+			isa = PBXGroup;
+			children = (
+				474C62E229014B9A00795656 /* ScheduleAPIResponse.swift */,
+				474C62DC2901488000795656 /* ScheduleAPIService.swift */,
+				474C62DA2901486B00795656 /* ScheduleApiServiceProtocol.swift */,
+				474C62DE2901488C00795656 /* ScheduleAPIError.swift */,
+			);
+			path = ScheduleApi;
+			sourceTree = "<group>";
+		};
 		47A195A729000A7400973B87 /* Data */ = {
 			isa = PBXGroup;
 			children = (
@@ -193,6 +212,7 @@
 			children = (
 				47A195A829000A7C00973B87 /* ServiceFactory.swift */,
 				47A195A729000A7400973B87 /* Data */,
+				474C62D52901480F00795656 /* ScheduleApi */,
 				47A195B029000D4300973B87 /* ShowApi */,
 			);
 			path = Services;
@@ -277,8 +297,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				47A195B829000D8300973B87 /* ShowsAPIError.swift in Sources */,
+				474C62DF2901488C00795656 /* ScheduleAPIError.swift in Sources */,
 				47D44CA128FEB706003E51F3 /* FavoritesViewModel.swift in Sources */,
 				47A195B629000D7600973B87 /* ShowsApiServiceProtocol.swift in Sources */,
+				474C62E329014B9B00795656 /* ScheduleAPIResponse.swift in Sources */,
+				474C62DD2901488000795656 /* ScheduleAPIService.swift in Sources */,
 				47D44C9928FEACF2003E51F3 /* SearchViewModel.swift in Sources */,
 				47A195AB29000A8B00973B87 /* DataServiceError.swift in Sources */,
 				47D44C9D28FEAE03003E51F3 /* SearchCoordinator.swift in Sources */,
@@ -296,6 +319,7 @@
 				47D44C9328FEA739003E51F3 /* HomeViewController.swift in Sources */,
 				47A195A929000A7C00973B87 /* ServiceFactory.swift in Sources */,
 				47A195AD29000AA200973B87 /* DataService.swift in Sources */,
+				474C62DB2901486B00795656 /* ScheduleApiServiceProtocol.swift in Sources */,
 				47D44C8D28FEA6F8003E51F3 /* Coordinator.swift in Sources */,
 				47D44C8F28FEA725003E51F3 /* HomeView.swift in Sources */,
 				47D44C7028FEA62D003E51F3 /* AppDelegate.swift in Sources */,
