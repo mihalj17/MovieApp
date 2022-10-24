@@ -24,6 +24,7 @@
 		47A195B429000D6700973B87 /* ShowsAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A195B329000D6700973B87 /* ShowsAPIService.swift */; };
 		47A195B629000D7600973B87 /* ShowsApiServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A195B529000D7600973B87 /* ShowsApiServiceProtocol.swift */; };
 		47A195B829000D8300973B87 /* ShowsAPIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A195B729000D8200973B87 /* ShowsAPIError.swift */; };
+		47A6DD2D29070D1A0024CCB9 /* AttributedText in Frameworks */ = {isa = PBXBuildFile; productRef = 47A6DD2C29070D1A0024CCB9 /* AttributedText */; };
 		47D44C7028FEA62D003E51F3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D44C6F28FEA62D003E51F3 /* AppDelegate.swift */; };
 		47D44C7228FEA62D003E51F3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D44C7128FEA62D003E51F3 /* SceneDelegate.swift */; };
 		47D44C7428FEA62D003E51F3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D44C7328FEA62D003E51F3 /* ViewController.swift */; };
@@ -93,6 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				47A6DD2D29070D1A0024CCB9 /* AttributedText in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,6 +266,9 @@
 			dependencies = (
 			);
 			name = Cobe;
+			packageProductDependencies = (
+				47A6DD2C29070D1A0024CCB9 /* AttributedText */,
+			);
 			productName = Cobe;
 			productReference = 47D44C6C28FEA62D003E51F3 /* Cobe.app */;
 			productType = "com.apple.product-type.application";
@@ -292,6 +297,9 @@
 				Base,
 			);
 			mainGroup = 47D44C6328FEA62D003E51F3;
+			packageReferences = (
+				47A6DD2B29070D1A0024CCB9 /* XCRemoteSwiftPackageReference "AttributedText" */,
+			);
 			productRefGroup = 47D44C6D28FEA62D003E51F3 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -570,6 +578,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		47A6DD2B29070D1A0024CCB9 /* XCRemoteSwiftPackageReference "AttributedText" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Iaenhaall/AttributedText.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		47A6DD2C29070D1A0024CCB9 /* AttributedText */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 47A6DD2B29070D1A0024CCB9 /* XCRemoteSwiftPackageReference "AttributedText" */;
+			productName = AttributedText;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 47D44C6428FEA62D003E51F3 /* Project object */;
 }

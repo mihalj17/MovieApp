@@ -6,17 +6,30 @@
 //
 
 import SwiftUI
+import AttributedText
 
 struct DetailsView<T>: View {
     @ObservedObject var viewModel: DetailsViewModel<T>
     var body: some View {
+        NavigationView{
+            VStack{
         if( (viewModel.data as? ShowsAPIResponse) != nil){
-            FirstSlider()
+            
+            FirstSlider(movie: viewModel.data as! ShowsAPIResponse)
+            
         }
         else{
-            SecondSLider()
+            SecondSLider(movie: viewModel.data as! ScheduleAPIResponse)
         }
+            }
+            
+        }
+        .hideNavigationBar()
+        
+        
     }
+        
+        
 }
 
 //struct DetailsView_Previews: PreviewProvider {
@@ -24,21 +37,99 @@ struct DetailsView<T>: View {
 //        DetailsView(viewModel: .init(data:  ))
 //    }
 //}
-
-
-
-struct FirstSlider: View {
-    
-    var body: some View {
-        Text("Firstslider")
-
+extension View {
+    func hideNavigationBar() -> some View {
+        self
+            .navigationBarTitle("", displayMode: .inline)
+            .navigationBarHidden(true)
     }
 }
 
-struct SecondSLider: View {
-    
+
+struct FirstSlider: View {
+    let movie: ShowsAPIResponse
     var body: some View {
-        Text("SEcondSlider")
+        VStack{
+            VStack(){
+                AsyncImage(url: movie.image.medium){ image in
+                    image.resizable().aspectRatio(contentMode: .fill)
+                    
+                } placeholder: {
+                    Color.gray
+                }
+            }
+            VStack{
+                AttributedText(movie.summary)
+                    .foregroundColor(.gray)
+                    .font(.system(size: 10))
+                    .lineLimit(3)
+            }
+            Spacer()
+            VStack{
+                HStack(alignment: .bottom){
+                    Text("Cast")
+                        .foregroundColor(Color("LightGray"))
+                    Spacer()
+                    Button("show all"){
+                        
+                    }
+                    .foregroundColor(.yellow)
+                    
+                }
+                ScrollView(.horizontal, showsIndicators: false, content: {
+                    HStack(spacing: 3){
+                        ForEach(0..<5) {_ in
+                            Rectangle()
+                                .fill(.red)
+                                .frame(width: 100, height: 100)
+                    }
+                    }
+                    
+                    
+                    
+                })
+            }
+            
+            
+        }
+        .background(.black)
+        
+    }
+        
+}
+
+
+
+
+
+struct SecondSLider: View {
+    let movie: ScheduleAPIResponse
+    var body: some View {
+        VStack{
+            VStack{
+                
+            }
+            VStack{
+                
+            }
+            VStack{
+                HStack{
+                    
+                }
+                ScrollView(.horizontal, showsIndicators: false, content: {
+                    HStack(spacing: 3){
+                        ForEach(0..<50) {_ in
+                            Rectangle()
+                                .fill(.red)
+                                .frame(width: 200, height: 200)
+                    }
+                    }
+                    
+                    
+                    
+                })
+            }
+        }
 
     }
 }

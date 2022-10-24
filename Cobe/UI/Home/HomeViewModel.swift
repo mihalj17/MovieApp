@@ -22,8 +22,8 @@ class HomeViewModel<T>: ObservableObject{
     }
     
     func show(){
+        DispatchQueue.main.async { [self] in
         getAllShows.fetchShow{ result in
-            DispatchQueue.main.async {
                 switch(result){
                 case .success(let response):
                     let movie = response
@@ -33,9 +33,8 @@ class HomeViewModel<T>: ObservableObject{
                 }
             }
         }
-        
+        DispatchQueue.main.async { [self] in
         getScheduleShows.fetchShow { result in
-            DispatchQueue.main.async {
                 switch(result){
                 case .success(let response):
                     let scheduleShow = response
