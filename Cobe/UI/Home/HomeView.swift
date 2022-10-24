@@ -2,7 +2,7 @@
 import SwiftUI
 
 struct HomeView: View {
-    @ObservedObject  var  viewModel = HomeViewModel(getAllShows: ShowsAPIService(),getScheduleShows: ScheduleAPIService())
+    @ObservedObject  var  viewModel = HomeViewModel<Any>(getAllShows: ShowsAPIService(),getScheduleShows: ScheduleAPIService())
     var body: some View {
         VStack{
             VStack{
@@ -11,7 +11,7 @@ struct HomeView: View {
                         .foregroundColor(.gray)
                     Spacer()
                     Button("show all"){
-              
+                        
                     }
                     .foregroundColor(.yellow)
                     
@@ -20,10 +20,18 @@ struct HomeView: View {
                     HStack(spacing: 3){
                         ForEach(viewModel.movies,id: \.id) { show in
                             MovieCardView(show: show)
+                                .onTapGesture {
+                                    viewModel.onGoToDetails?(show)
+                           
                             
                         }
+                        
 //
                     }
+                    }
+                    
+                    
+                    
                 })
             }
             VStack{
@@ -41,8 +49,12 @@ struct HomeView: View {
                     HStack(spacing: 3){
                         ForEach(viewModel.scheduleMovies,id: \.id) { show in
                             ScheduleMovieCardView(scheduleShow: show)
+                                .onTapGesture {
+                                    viewModel.onGoToDetails?(show)
+                                }
                         }
                         }
+                    
                 })
             }
             Spacer()

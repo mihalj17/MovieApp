@@ -37,7 +37,7 @@ class FavoritesCoordinator: Coordinator {
         return vc
     }
     
-    override func start() {
+     override func start() {
         
     }
     

@@ -10,7 +10,6 @@ import UIKit
 
 
 class RootCoordinator: Coordinator {
-    
     var rootViewController: UIViewController{
         return tabBarController
     }
@@ -40,15 +39,23 @@ class RootCoordinator: Coordinator {
         let searchCoordinator = makeSearchCoordinator()
         let favoritesCooordinator = makeFavoritesCoordinator()
         
+        
+        
+        
         tabBarController.viewControllers = [
             homeCoordinator.rootViewController,
             searchCoordinator.rootViewController,
-            favoritesCooordinator.rootViewController
+            favoritesCooordinator.rootViewController,
+            
         ]
         
         childCoordinators.append(homeCoordinator)
         childCoordinators.append(searchCoordinator)
         childCoordinators.append(favoritesCooordinator)
+        
+        
+        
+        
     }
     
     func makeHomeCoordinator() -> HomeCoordinator {
@@ -62,10 +69,13 @@ class RootCoordinator: Coordinator {
     func makeFavoritesCoordinator() -> FavoritesCoordinator{
         return FavoritesCoordinator(tabBarItem: UITabBarItem(title: "Favorites", image: UIImage(systemName: "heart"), selectedImage: UIImage(systemName: "heart.fill")))
     }
-
+    
+    
+    
     override func start() {
         childCoordinators.forEach{ (childCoordinators) in
             childCoordinators.start()
+            
         }
     }
 }
