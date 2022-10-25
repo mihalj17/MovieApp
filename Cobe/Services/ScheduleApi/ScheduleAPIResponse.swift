@@ -18,6 +18,7 @@ struct ScheduleAPIResponse: Identifiable, Codable{
     struct Show:Codable{
         let name: String
         let image: Image?
+        let summary: String?
         
     }
     
