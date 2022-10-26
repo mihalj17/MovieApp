@@ -8,14 +8,53 @@
 import SwiftUI
 
 struct SearchView: View {
-    var viewModel: SearchViewModel
+    @ObservedObject  var  viewModel = SearchViewModel(getAllShows: ShowsAPIService())
+    @State private var searchString = ""
     var body: some View {
-        Text("SearchView")
+        ZStack{
+            VStack {
+                ScrollView {
+                    ForEach(viewModel.movies) { movie in
+                        
+                        SearchMovieCardView(show: movie)
+                        
+                    }
+                }
+            }
+        }
+        .padding(.top,8)
+        .padding(.bottom,10)
+        .searchable(text: $searchString)
+        .preferredColorScheme(.light)
+        .background(.black)
+        
+        
+        
+        .onAppear {
+            viewModel.fetchShow()
+            let appearance = UINavigationBarAppearance()
+            appearance.backgroundEffect = UIBlurEffect(style: .systemUltraThinMaterial)
+            appearance.backgroundColor = .black
+            appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+            UINavigationBar.appearance().standardAppearance = appearance
+            UINavigationBar.appearance().scrollEdgeAppearance = appearance
+            
+            
+        }
+        
+        
     }
 }
 
+
+
+
+
 struct SearchView_Previews: PreviewProvider {
     static var previews: some View {
-        SearchView(viewModel: .init())
+        SearchView(viewModel: .init(getAllShows: ShowsAPIService()))
     }
 }
+
+
+

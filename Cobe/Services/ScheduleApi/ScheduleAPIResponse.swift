@@ -13,6 +13,8 @@ struct ScheduleAPIResponse: Identifiable, Codable{
     let id: Int
     let airdate: String
     let airtime: String
+    let season: Int
+    let name: String
     let show: Show
     
     struct Show:Codable{

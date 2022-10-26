@@ -30,7 +30,7 @@ class SearchCoordinator: Coordinator {
     }
     
     private func makeViewController(with tabBarItem: UITabBarItem) -> UIViewController {
-        let vm = SearchViewModel()
+        let vm = SearchViewModel(getAllShows: ShowsAPIService())
         let vc = UIHostingController(rootView: SearchView(viewModel: vm))
         vc.tabBarItem = tabBarItem
         return vc

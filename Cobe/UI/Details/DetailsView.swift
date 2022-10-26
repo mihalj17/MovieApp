@@ -15,13 +15,10 @@ struct DetailsView<T>: View {
             VStack{
             VStack{
                 if( (viewModel.data as? ShowsAPIResponse) != nil){
-                    
-                    let _ =  print("miran 2")
                     ShowDetailsView(movie: viewModel.data as! ShowsAPIResponse, cast: viewModel.cast)
                     
                 }
                 else{
-                    let _ =  print("matko 2")
                     ScheduleDetailsView(schedule: viewModel.data as! ScheduleAPIResponse, scheduleCast: viewModel.cast)
                 }
                 

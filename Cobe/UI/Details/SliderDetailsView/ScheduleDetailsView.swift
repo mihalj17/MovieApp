@@ -63,7 +63,6 @@ struct ScheduleDetailsView: View {
                                 } placeholder: {
                                     Color.gray
                                 }
-                               
                             }.frame(width: 100, height: 100)
                             
                         }

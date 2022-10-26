@@ -44,7 +44,6 @@ struct HomeView: View {
                         ForEach(viewModel.scheduleMovies,id: \.id) { scheduleShow in
                             ScheduleMovieCardView(scheduleShow: scheduleShow)
                                 .onTapGesture {
-                                    let _ = print("id od schedule \(scheduleShow.id)")
                                     viewModel.getCast(scheduleShow.show.id)
                                     viewModel.onGoToDetails?(scheduleShow,viewModel.cast)
                                 }
