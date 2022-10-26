@@ -32,21 +32,21 @@ class HomeCoordinator: Coordinator{
     }
     
     private func makeViewController(with tabBarItem: UITabBarItem) -> UIViewController {
-        let vm = HomeViewModel<Any>(getAllShows: ShowsAPIService(),getScheduleShows: ScheduleAPIService())
+        let vm = HomeViewModel<Any>(getAllShows: ShowsAPIService(),getScheduleShows: ScheduleAPIService(), getCast: CastAPIService())
         let vc = UIHostingController(rootView: HomeView(viewModel: vm))
         vc.tabBarItem = tabBarItem
         
         
-        vm.onGoToDetails = { [weak self] movie  in
-            self?.goToInfo(object: movie)
+        vm.onGoToDetails = { [weak self] movie, cast  in
+            self?.goToInfo(object: movie, cast: cast)
             
         }
         return vc
     }
     
-    private func goToInfo<T>(object: T){
+    private func goToInfo<T>(object: T, cast: [CastAPIResponse]){
         
-        let detailsCoordinator = DetailsCoordinator(navigationController: navigationController, data: object)
+        let detailsCoordinator = DetailsCoordinator(navigationController: navigationController, data: object, cast: cast)
         childCoordinators.append(detailsCoordinator)
         let detailsViewController = detailsCoordinator.makeController()
         navigationController.pushViewController(detailsViewController, animated: true)

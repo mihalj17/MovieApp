@@ -20,11 +20,4 @@ final class ScheduleAPIService: ScheduleAPIServiceProtocol {
     
     
     private let dataService: DataServiceProtocol = DataService()
-    
-   
-    
-    
-    
-    
-    
 }

@@ -7,17 +7,26 @@
 
 import Foundation
 import UIKit
+import SwiftUI
 
 
 class HomeViewModel<T>: ObservableObject{
+    
     private let getAllShows: ShowsAPIServiceProtocol
     private let getScheduleShows: ScheduleAPIServiceProtocol
-    var onGoToDetails: ((_ object: T) -> Void)?
+    private let getCast: CastAPIServiceProtocol
+    
+    var onGoToDetails: ((_ object: T, _ cast:[CastAPIResponse]) -> Void)?
+    
     @Published  var movies = [ShowsAPIResponse]()
     @Published var scheduleMovies = [ScheduleAPIResponse]()
-    init(getAllShows: ShowsAPIServiceProtocol, getScheduleShows: ScheduleAPIServiceProtocol){
+    @Published var cast = [CastAPIResponse]()
+    
+    
+    init(getAllShows: ShowsAPIServiceProtocol, getScheduleShows: ScheduleAPIServiceProtocol, getCast: CastAPIServiceProtocol){
         self.getAllShows = getAllShows
         self.getScheduleShows = getScheduleShows
+        self.getCast = getCast
         
     }
     
@@ -27,7 +36,8 @@ class HomeViewModel<T>: ObservableObject{
                 switch(result){
                 case .success(let response):
                     let movie = response
-                    self.movies.append(contentsOf: movie)
+                    DispatchQueue.main.async {
+                        self.movies.append(contentsOf: movie)}
                 case.failure(let error):
                     print("error \(error.localizedDescription)")
                 }
@@ -38,16 +48,43 @@ class HomeViewModel<T>: ObservableObject{
                 switch(result){
                 case .success(let response):
                     let scheduleShow = response
-                    self.scheduleMovies.append(contentsOf: scheduleShow)
+                    DispatchQueue.main.async {
+                        self.scheduleMovies.append(contentsOf: scheduleShow)}
                 case .failure(let error):
                     print("error \(error.localizedDescription)")
                 }
             }
         }
         
+        
+        
+        
     }
+    func getCast(_ movie: Int){
+        
+            getCast.fetchShow(from: movie) { result in
+                switch(result){
+                case .success(let response):
+                    let castItem = response
+                    self.cast.append(contentsOf: castItem)
+                case .failure(let error):
+                    print("error \(error.localizedDescription)")
+                    
+                }
+            }
+        
+        
+        
+       
+        
+    }
+  
     
-    
+func emptyCast(){
+        for _ in cast.enumerated().reversed() {
+            cast.removeAll()
+        }
+        
+    }
+
 }
-
-

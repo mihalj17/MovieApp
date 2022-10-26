@@ -14,7 +14,7 @@ final class DataService: DataServiceProtocol {
         guard let url = url else {
             return completionHandler(.failure(DataServiceError.badURL))
         }
-        
+      
         guard let data = try? Data(contentsOf: url) else {
             return completionHandler(.failure(DataServiceError.noInternet))
         }
@@ -24,10 +24,10 @@ final class DataService: DataServiceProtocol {
         
         completionHandler(.success(decodeData))
 
+    
+    
+    
     }
-    
-    
-    
     
     
 }

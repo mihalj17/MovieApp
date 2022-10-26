@@ -9,10 +9,12 @@ import Foundation
 
 class DetailsViewModel<T>: ObservableObject {
     
-     let data: T
-     init(data: T){
+    let data: T
+    let cast: [CastAPIResponse]
+    init(data: T, cast: [CastAPIResponse]){
         
-         self.data = data
+        self.data = data
+        self.cast = cast
         
     }
 }

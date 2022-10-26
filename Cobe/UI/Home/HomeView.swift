@@ -2,7 +2,7 @@
 import SwiftUI
 
 struct HomeView: View {
-    @ObservedObject  var  viewModel = HomeViewModel<Any>(getAllShows: ShowsAPIService(),getScheduleShows: ScheduleAPIService())
+    @ObservedObject  var  viewModel = HomeViewModel<Any>(getAllShows: ShowsAPIService(),getScheduleShows: ScheduleAPIService(), getCast: CastAPIService())
     var body: some View {
         VStack{
             VStack{
@@ -21,17 +21,11 @@ struct HomeView: View {
                         ForEach(viewModel.movies,id: \.id) { show in
                             MovieCardView(show: show)
                                 .onTapGesture {
-                                    viewModel.onGoToDetails?(show)
-                           
-                            
+                                    viewModel.getCast(show.id)
+                                    viewModel.onGoToDetails?(show,viewModel.cast)
+                                }
                         }
-                        
-//
                     }
-                    }
-                    
-                    
-                    
                 })
             }
             VStack{
@@ -47,24 +41,28 @@ struct HomeView: View {
                 }
                 ScrollView(.horizontal, showsIndicators: false, content: {
                     HStack(spacing: 3){
-                        ForEach(viewModel.scheduleMovies,id: \.id) { show in
-                            ScheduleMovieCardView(scheduleShow: show)
+                        ForEach(viewModel.scheduleMovies,id: \.id) { scheduleShow in
+                            ScheduleMovieCardView(scheduleShow: scheduleShow)
                                 .onTapGesture {
-                                    viewModel.onGoToDetails?(show)
+                                    let _ = print("id od schedule \(scheduleShow.id)")
+                                    viewModel.getCast(scheduleShow.show.id)
+                                    viewModel.onGoToDetails?(scheduleShow,viewModel.cast)
                                 }
+                            
                         }
-                        }
+                    }
                     
                 })
             }
             Spacer()
             Spacer()
         }
-        .background(.black)
         .onAppear{
             viewModel.show()
-            
+            viewModel.emptyCast()
         }
+        .background(.black)
+        
     }
     
     
@@ -73,91 +71,12 @@ struct HomeView: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView(viewModel: .init(getAllShows: ShowsAPIService(),getScheduleShows: ScheduleAPIService()))
+        HomeView(viewModel: .init(getAllShows: ShowsAPIService(),getScheduleShows: ScheduleAPIService(), getCast: CastAPIService()))
     }
 }
 
 
-struct MovieCardView: View {
-    var show: ShowsAPIResponse
-    var body: some View {
-        VStack() {
-            VStack{
-            AsyncImage(url: show.image.medium) { image in
-                image.resizable().scaledToFit()
-            } placeholder: {
-                Color.gray
-                
-            }
-            
-            
-            }
-            
-            VStack() {
-                HStack(alignment: .center, spacing: .leastNormalMagnitude){
-                 Image(systemName: "star.fill")
-                        .foregroundColor(.yellow)
-                
-                    Text("\(show.rating.average ?? 5.0,specifier: "%.2f")")
-                        .foregroundColor(.gray)
-                      Spacer()
-                }
-                HStack(alignment: .center){
-                    Spacer()
-                Text(show.name)
-                    .tint(Color.white)
-                    .padding(.trailing)
-                    .foregroundColor(.gray)
-                    .multilineTextAlignment(.leading)
-                    .font(.headline)
-                Spacer()
-                }
-            }
-            
-        }
-        .background(Color("DarkGray"))
-        .clipShape(RoundedRectangle(cornerRadius: 10))
-        
-    }
-}
-
-struct ScheduleMovieCardView: View {
-    
-    var scheduleShow: ScheduleAPIResponse
-    let dateFormatter = DateFormatter()
-    
-    var body: some View {
-        VStack() {
-            VStack{
-                AsyncImage(url: scheduleShow.show.image?.medium) { image in
-                image.resizable().scaledToFit()
-            } placeholder: {
-                Color.gray
-
-            }
 
 
-            }
-            VStack(){
-                HStack{
-                Text(scheduleShow.airdate)
-                    .foregroundColor(.gray)
-                Text(scheduleShow.airtime)
-                    .foregroundColor(.gray)
-                }
-                Text(scheduleShow.show.name)
-                    .foregroundColor(.gray)
-                
-                
-            }
-            
-
-        }
-        .background(Color("DarkGray"))
-        .clipShape(RoundedRectangle(cornerRadius: 10))
-
-    }
-        
-}
 
 
