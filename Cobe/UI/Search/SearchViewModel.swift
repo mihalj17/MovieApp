@@ -10,30 +10,34 @@ import Foundation
 
 final class SearchViewModel : ObservableObject{
     
-    private let getAllShows: ShowsAPIServiceProtocol
-    @Published  var movies = [ShowsAPIResponse]()
+    private let getSearchMovie: SearchAPIServiceProtocol
+    @Published  var searchedMovies = [SearchAPIResponse]()
     
-    init(getAllShows: ShowsAPIServiceProtocol){
-        self.getAllShows = getAllShows
+    init(getSearchMovie: SearchAPIServiceProtocol){
+        self.getSearchMovie = getSearchMovie
+        
     }
     
     
-    func fetchShow(){
-        DispatchQueue.main.async { [self] in
-        getAllShows.fetchShow{ result in
+    func getSearchMovie(_ movie: String){
+        
+            getSearchMovie.fetchShow(from: movie) { result in
                 switch(result){
                 case .success(let response):
-                    let movie = response
-                    DispatchQueue.main.async {
-                        self.movies.append(contentsOf: movie)}
-                    print("filmovi \(self.movies)")
-                case.failure(let error):
+                    let castItem = response
+                    self.searchedMovies.insert(contentsOf: castItem, at: 0)
+                case .failure(let error):
                     print("error \(error.localizedDescription)")
+                    
                 }
             }
-        }
-
     }
+    func emptySearchedCast(){
+            for _ in searchedMovies.enumerated().reversed() {
+                searchedMovies.removeAll()
+            }
+            
+        }
 }
 
 

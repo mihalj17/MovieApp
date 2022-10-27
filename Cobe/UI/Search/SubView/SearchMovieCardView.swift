@@ -9,12 +9,12 @@ import Foundation
 import SwiftUI
 
 struct SearchMovieCardView: View {
-    var show: ShowsAPIResponse
+    var searchMovie: SearchAPIResponse
     var body: some View {
         VStack{
             HStack{
                 VStack{
-                    AsyncImage(url: show.image.medium) { image in
+                    AsyncImage(url: searchMovie.show.image.medium) { image in
                         image.resizable().scaledToFit()
                     } placeholder: {
                         Color.gray
@@ -23,20 +23,20 @@ struct SearchMovieCardView: View {
                 }.frame(width: 100, height: 100)
                 VStack{
                     HStack{
-                        Text(show.name)
+                        Text(searchMovie.show.name)
                             .font(.custom("FontName",fixedSize: 20))
                             .foregroundColor(.white)
                         Spacer()
                     }
                     Spacer()
                     HStack{
-                        Text(show.premiered)
+                        Text(searchMovie.show.premiered)
                             .foregroundColor(.gray)
                         Spacer()
                     }
                     Spacer()
                     HStack{
-                        ForEach(show.genres,id: \.self){genres in
+                        ForEach(searchMovie.show.genres,id: \.self){genres in
                             Text(genres)
                                 .foregroundColor(.gray)
                         }

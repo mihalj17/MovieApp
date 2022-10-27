@@ -10,6 +10,6 @@ import Foundation
 
 protocol SearchAPIServiceProtocol: AnyObject {
     
-    func fetchShow(completionHandler: @escaping (Result<[ScheduleAPIResponse],Error>) -> Void
+    func fetchShow(from searchString: String,completionHandler: @escaping (Result<[SearchAPIResponse],Error>) -> Void
     )
 }

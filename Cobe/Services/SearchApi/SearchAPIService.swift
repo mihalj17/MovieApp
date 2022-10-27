@@ -9,11 +9,11 @@ import Foundation
 
 
 
-final class SearchAPIService: ScheduleAPIServiceProtocol {
+final class SearchAPIService: SearchAPIServiceProtocol {
     
     init(){}
-    func fetchShow(completionHandler: @escaping (Result<[ScheduleAPIResponse], Error>) -> Void) {
-        guard let url = URL(string: "https://api.tvmaze.com/schedule?country=US&date=2014-12-01") else {
+    func fetchShow(from searchString: String,completionHandler: @escaping (Result<[SearchAPIResponse], Error>) -> Void) {
+        guard let url = URL(string: "https://api.tvmaze.com/search/shows?q=\(searchString)") else {
         return completionHandler(.failure(ScheduleAPIError.badURLName))
     }
         dataService.fetchJSON(from: url, completionHandler: completionHandler)

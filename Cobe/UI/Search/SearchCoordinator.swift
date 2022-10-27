@@ -14,7 +14,6 @@ import SwiftUI
 class SearchCoordinator: Coordinator {
     
     private var navigationController: UINavigationController!
-    
     var rootViewController: UIViewController {
         return navigationController
     }
@@ -30,7 +29,7 @@ class SearchCoordinator: Coordinator {
     }
     
     private func makeViewController(with tabBarItem: UITabBarItem) -> UIViewController {
-        let vm = SearchViewModel(getAllShows: ShowsAPIService())
+        let vm = SearchViewModel(getSearchMovie: SearchAPIService())
         let vc = UIHostingController(rootView: SearchView(viewModel: vm))
         vc.tabBarItem = tabBarItem
         return vc

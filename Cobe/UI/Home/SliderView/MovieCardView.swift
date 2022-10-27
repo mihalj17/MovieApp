@@ -13,7 +13,7 @@ struct MovieCardView: View {
     var body: some View {
         VStack() {
             VStack{
-            AsyncImage(url: show.image.medium) { image in
+            AsyncImage(url: show.image.medium) {  image in
                 image.resizable().scaledToFit()
             } placeholder: {
                 Color.gray
