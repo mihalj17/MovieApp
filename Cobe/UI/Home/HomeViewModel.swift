@@ -12,9 +12,9 @@ import SwiftUI
 
 class HomeViewModel<T>: ObservableObject{
     
-    private let getAllShows: ShowsAPIServiceProtocol
-    private let getScheduleShows: ScheduleAPIServiceProtocol
-    private let getCast: CastAPIServiceProtocol
+    private let ShowsApiService: ShowsAPIServiceProtocol
+    private let ScheduleApiService: ScheduleAPIServiceProtocol
+    private let CastApiService: CastAPIServiceProtocol
     
     var onGoToDetails: ((_ object: T, _ cast:[CastAPIResponse]) -> Void)?
     
@@ -23,50 +23,46 @@ class HomeViewModel<T>: ObservableObject{
     @Published var cast = [CastAPIResponse]()
     
     
-    init(getAllShows: ShowsAPIServiceProtocol, getScheduleShows: ScheduleAPIServiceProtocol, getCast: CastAPIServiceProtocol){
-        self.getAllShows = getAllShows
-        self.getScheduleShows = getScheduleShows
-        self.getCast = getCast
+    init(ShowsApiService: ShowsAPIServiceProtocol, ScheduleApiService: ScheduleAPIServiceProtocol, CastApiService: CastAPIServiceProtocol){
+        self.ShowsApiService = ShowsApiService
+        self.ScheduleApiService = ScheduleApiService
+        self.CastApiService = CastApiService
         
     }
     
-    func show(){
-        DispatchQueue.main.async { [self] in
-        getAllShows.fetchShow{ result in
-                switch(result){
+    func fetchShowInfo(){
+        ShowsApiService.fetchShow{ [weak self] result in
+                switch(result){ 
                 case .success(let response):
                     let movie = response
-                    DispatchQueue.main.async {
-                        self.movies.append(contentsOf: movie)}
+                    self?.movies.insert(contentsOf:movie.self, at: 0)
+//                    self.movies.append(contentsOf: movie)
                 case.failure(let error):
                     print("error \(error.localizedDescription)")
                 }
             }
-        }
-        DispatchQueue.main.async { [self] in
-        getScheduleShows.fetchShow { result in
+    }
+    
+    func fetchScheduleShowInfo(){
+        ScheduleApiService.fetchShow { [weak self] result in
                 switch(result){
                 case .success(let response):
                     let scheduleShow = response
-                    DispatchQueue.main.async {
-                        self.scheduleMovies.append(contentsOf: scheduleShow)}
+                    self?.scheduleMovies.insert(contentsOf:scheduleShow.self, at: 0)
                 case .failure(let error):
                     print("error \(error.localizedDescription)")
                 }
             }
-        }
-        
-        
-        
-        
     }
-    func getCast(_ movie: Int){
+    
+    func getCastInfo(_ movie: Int){
         
-            getCast.fetchShow(from: movie) { result in
+        CastApiService.fetchShow(from: movie) { [weak self]  result in
                 switch(result){
                 case .success(let response):
                     let castItem = response
-                    self.cast.append(contentsOf: castItem)
+//                    self.cast.append(contentsOf: castItem)
+                    self?.cast.insert(contentsOf:castItem.self, at: 0)
                 case .failure(let error):
                     print("error \(error.localizedDescription)")
                     

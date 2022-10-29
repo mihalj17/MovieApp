@@ -14,12 +14,12 @@
     },
     {
       "color" : {
-        "color-space" : "display-p3",
+        "color-space" : "srgb",
         "components" : {
           "alpha" : "1.000",
-          "blue" : "0.992",
+          "blue" : "0.974",
           "green" : "1.000",
-          "red" : "0.935"
+          "red" : "0.937"
         }
       },
       "idiom" : "iphone"

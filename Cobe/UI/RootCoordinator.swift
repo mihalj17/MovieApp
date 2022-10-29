@@ -73,7 +73,7 @@ class RootCoordinator: Coordinator {
     
     
     override func start() {
-        childCoordinators.forEach{ [weak self] (childCoordinators) in
+        childCoordinators.forEach{  (childCoordinators) in
             childCoordinators.start()
             
         }

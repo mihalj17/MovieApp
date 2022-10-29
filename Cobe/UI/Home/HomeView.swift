@@ -2,7 +2,8 @@
 import SwiftUI
 
 struct HomeView: View {
-    @ObservedObject  var  viewModel = HomeViewModel<Any>(getAllShows: ShowsAPIService(),getScheduleShows: ScheduleAPIService(), getCast: CastAPIService())
+    @ObservedObject  var  viewModel = HomeViewModel<Any>(ShowsApiService: ShowsAPIService(),ScheduleApiService: ScheduleAPIService(), CastApiService: CastAPIService())
+    @State var count = 0
     var body: some View {
         VStack{
             VStack{
@@ -21,7 +22,7 @@ struct HomeView: View {
                         ForEach(viewModel.movies,id: \.id) { show in
                             MovieCardView(show: show)
                                 .onTapGesture {
-                                    viewModel.getCast(show.id)
+                                    viewModel.getCastInfo(show.id)
                                     viewModel.onGoToDetails?(show,viewModel.cast)
                                 }
                         }
@@ -44,7 +45,7 @@ struct HomeView: View {
                         ForEach(viewModel.scheduleMovies,id: \.id) { scheduleShow in
                             ScheduleMovieCardView(scheduleShow: scheduleShow)
                                 .onTapGesture {
-                                    viewModel.getCast(scheduleShow.show.id)
+                                    viewModel.getCastInfo(scheduleShow.show.id)
                                     viewModel.onGoToDetails?(scheduleShow,viewModel.cast)
                                 }
                             
@@ -56,10 +57,18 @@ struct HomeView: View {
             Spacer()
             Spacer()
         }
-        .onAppear{
-            viewModel.show()
-            viewModel.emptyCast()
-        }
+        .onAppear {
+              if count < 1 {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                    viewModel.fetchShowInfo()
+                    viewModel.fetchScheduleShowInfo()
+                    viewModel.emptyCast()
+                    count.self += 1
+              }
+              }
+              else { return }
+            }
+
         .background(.black)
         
     }
@@ -70,7 +79,7 @@ struct HomeView: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView(viewModel: .init(getAllShows: ShowsAPIService(),getScheduleShows: ScheduleAPIService(), getCast: CastAPIService()))
+        HomeView(viewModel: .init(ShowsApiService: ShowsAPIService(),ScheduleApiService: ScheduleAPIService(), CastApiService: CastAPIService()))
     }
 }
 

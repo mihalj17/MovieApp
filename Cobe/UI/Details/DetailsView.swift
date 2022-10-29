@@ -22,10 +22,10 @@ struct DetailsView<T>: View {
                     ScheduleDetailsView(schedule: viewModel.data as! ScheduleAPIResponse, scheduleCast: viewModel.cast)
                 }
                 
-                
+                    
             }
-            
             }.edgesIgnoringSafeArea(.all)
+                
         }
         .background(.black)
     }
