@@ -29,6 +29,7 @@ struct ScheduleMovieCardView: View {
                 HStack{
                 Text(scheduleShow.airdate)
                     .foregroundColor(.gray)
+                    Spacer()
                 Text(scheduleShow.airtime)
                     .foregroundColor(.gray)
                 }

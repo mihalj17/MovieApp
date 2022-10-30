@@ -6,10 +6,18 @@
 //
 
 import Foundation
+import SwiftUI
 
 
-final class FavoritesViewModel {
-    init(){
-        
+final class FavoritesViewModel: ObservableObject{
+    private let persistenceService: PersistenceServiceProtocol
+    @Published var favoritedMovies = [MovieDataArray]()
+    init(persistenceService: PersistenceServiceProtocol){
+        self.persistenceService = persistenceService
     }
+    
+    
+    
+    
+
 }

@@ -33,10 +33,13 @@
 		47A195B629000D7600973B87 /* ShowsApiServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A195B529000D7600973B87 /* ShowsApiServiceProtocol.swift */; };
 		47A195B829000D8300973B87 /* ShowsAPIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A195B729000D8200973B87 /* ShowsAPIError.swift */; };
 		47A6DD2D29070D1A0024CCB9 /* AttributedText in Frameworks */ = {isa = PBXBuildFile; productRef = 47A6DD2C29070D1A0024CCB9 /* AttributedText */; };
+		47BF20BD290E98550096667B /* MovieData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47BF20BC290E98550096667B /* MovieData.swift */; };
+		47BF20BF290E98AC0096667B /* PersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47BF20BE290E98AC0096667B /* PersistenceService.swift */; };
+		47BF20C1290E98D20096667B /* PersistenceServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47BF20C0290E98D20096667B /* PersistenceServiceProtocol.swift */; };
+		47BF20C3290E995A0096667B /* UserDefaults+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47BF20C2290E995A0096667B /* UserDefaults+.swift */; };
 		47D44C7028FEA62D003E51F3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D44C6F28FEA62D003E51F3 /* AppDelegate.swift */; };
 		47D44C7228FEA62D003E51F3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D44C7128FEA62D003E51F3 /* SceneDelegate.swift */; };
 		47D44C7428FEA62D003E51F3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D44C7328FEA62D003E51F3 /* ViewController.swift */; };
-		47D44C7728FEA62D003E51F3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47D44C7528FEA62D003E51F3 /* Main.storyboard */; };
 		47D44C7928FEA62E003E51F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 47D44C7828FEA62E003E51F3 /* Assets.xcassets */; };
 		47D44C7C28FEA62E003E51F3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47D44C7A28FEA62E003E51F3 /* LaunchScreen.storyboard */; };
 		47D44C8B28FEA6DE003E51F3 /* RootCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D44C8A28FEA6DE003E51F3 /* RootCoordinator.swift */; };
@@ -82,11 +85,14 @@
 		47A195B329000D6700973B87 /* ShowsAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowsAPIService.swift; sourceTree = "<group>"; };
 		47A195B529000D7600973B87 /* ShowsApiServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowsApiServiceProtocol.swift; sourceTree = "<group>"; };
 		47A195B729000D8200973B87 /* ShowsAPIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowsAPIError.swift; sourceTree = "<group>"; };
+		47BF20BC290E98550096667B /* MovieData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieData.swift; sourceTree = "<group>"; };
+		47BF20BE290E98AC0096667B /* PersistenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceService.swift; sourceTree = "<group>"; };
+		47BF20C0290E98D20096667B /* PersistenceServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceServiceProtocol.swift; sourceTree = "<group>"; };
+		47BF20C2290E995A0096667B /* UserDefaults+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+.swift"; sourceTree = "<group>"; };
 		47D44C6C28FEA62D003E51F3 /* Cobe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cobe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		47D44C6F28FEA62D003E51F3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		47D44C7128FEA62D003E51F3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		47D44C7328FEA62D003E51F3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		47D44C7628FEA62D003E51F3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		47D44C7828FEA62E003E51F3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		47D44C7B28FEA62E003E51F3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		47D44C7D28FEA62E003E51F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -199,6 +205,24 @@
 			path = ShowApi;
 			sourceTree = "<group>";
 		};
+		47BF20B8290E976E0096667B /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				47BF20BB290E98450096667B /* Models */,
+				47BF20BE290E98AC0096667B /* PersistenceService.swift */,
+				47BF20C0290E98D20096667B /* PersistenceServiceProtocol.swift */,
+			);
+			path = Persistence;
+			sourceTree = "<group>";
+		};
+		47BF20BB290E98450096667B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				47BF20BC290E98550096667B /* MovieData.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		47D44C6328FEA62D003E51F3 = {
 			isa = PBXGroup;
 			children = (
@@ -221,10 +245,10 @@
 				47D44C6F28FEA62D003E51F3 /* AppDelegate.swift */,
 				47D44C7128FEA62D003E51F3 /* SceneDelegate.swift */,
 				47D44C7328FEA62D003E51F3 /* ViewController.swift */,
-				47D44C7528FEA62D003E51F3 /* Main.storyboard */,
 				47D44C7828FEA62E003E51F3 /* Assets.xcassets */,
 				47D44C7A28FEA62E003E51F3 /* LaunchScreen.storyboard */,
 				47D44C7D28FEA62E003E51F3 /* Info.plist */,
+				47BF20B8290E976E0096667B /* Persistence */,
 				47D44C8928FEA6CE003E51F3 /* DataModels */,
 				47D44C8828FEA6C1003E51F3 /* Services */,
 				47D44C8728FEA6A4003E51F3 /* UI */,
@@ -238,6 +262,7 @@
 			children = (
 				47D44C8C28FEA6F8003E51F3 /* Coordinator.swift */,
 				479205302902CC58005D70EF /* TypeAliases.swift */,
+				47BF20C2290E995A0096667B /* UserDefaults+.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -383,7 +408,6 @@
 			files = (
 				47D44C7C28FEA62E003E51F3 /* LaunchScreen.storyboard in Resources */,
 				47D44C7928FEA62E003E51F3 /* Assets.xcassets in Resources */,
-				47D44C7728FEA62D003E51F3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -406,6 +430,7 @@
 				47D44C9928FEACF2003E51F3 /* SearchViewModel.swift in Sources */,
 				47438A6929019D5F003419B5 /* DetailsCoordinator.swift in Sources */,
 				47A195AB29000A8B00973B87 /* DataServiceError.swift in Sources */,
+				47BF20BD290E98550096667B /* MovieData.swift in Sources */,
 				474CD5AF290863BE00201C5B /* ScheduleDetailsView.swift in Sources */,
 				474CD5A62908513300201C5B /* CastAPIService.swift in Sources */,
 				47D44C9D28FEAE03003E51F3 /* SearchCoordinator.swift in Sources */,
@@ -417,7 +442,9 @@
 				47D44C9F28FEB6F7003E51F3 /* FavoritesView.swift in Sources */,
 				47A195B429000D6700973B87 /* ShowsAPIService.swift in Sources */,
 				47D44C7428FEA62D003E51F3 /* ViewController.swift in Sources */,
+				47BF20C1290E98D20096667B /* PersistenceServiceProtocol.swift in Sources */,
 				479205312902CC58005D70EF /* TypeAliases.swift in Sources */,
+				47BF20BF290E98AC0096667B /* PersistenceService.swift in Sources */,
 				47D44C9528FEA744003E51F3 /* HomeCoordinator.swift in Sources */,
 				47D44C9128FEA730003E51F3 /* HomeViewModel.swift in Sources */,
 				474CD5A42908512200201C5B /* CastAPIResponse.swift in Sources */,
@@ -433,6 +460,7 @@
 				47D44C8D28FEA6F8003E51F3 /* Coordinator.swift in Sources */,
 				47D44C8F28FEA725003E51F3 /* HomeView.swift in Sources */,
 				47D44C7028FEA62D003E51F3 /* AppDelegate.swift in Sources */,
+				47BF20C3290E995A0096667B /* UserDefaults+.swift in Sources */,
 				474CD5B4290950CE00201C5B /* ScheduleMovieCardView.swift in Sources */,
 				47438A6529019D48003419B5 /* DetailsViewModel.swift in Sources */,
 				47D44CA528FEB71B003E51F3 /* FavoritesCoordinator.swift in Sources */,
@@ -443,14 +471,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		47D44C7528FEA62D003E51F3 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				47D44C7628FEA62D003E51F3 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		47D44C7A28FEA62E003E51F3 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -585,7 +605,6 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Cobe/Info.plist;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationPortrait";
@@ -611,7 +630,6 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Cobe/Info.plist;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationPortrait";

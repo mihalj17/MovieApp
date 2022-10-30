@@ -24,7 +24,7 @@ struct MovieCardView: View {
             }
             
             VStack() {
-                HStack(alignment: .center, spacing: .leastNormalMagnitude){
+                HStack(alignment: .center, spacing: 4){
                  Image(systemName: "star.fill")
                         .foregroundColor(.yellow)
                 
@@ -33,7 +33,7 @@ struct MovieCardView: View {
                       Spacer()
                 }
                 HStack(alignment: .center){
-                    Spacer()
+                Spacer()
                 Text(show.name)
                     .tint(Color.white)
                     .padding(.trailing)

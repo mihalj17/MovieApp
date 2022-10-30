@@ -25,7 +25,7 @@ struct DetailsView<T>: View {
                     
             }
             }.edgesIgnoringSafeArea(.all)
-                
+                .background(.black)
         }
         .background(.black)
     }

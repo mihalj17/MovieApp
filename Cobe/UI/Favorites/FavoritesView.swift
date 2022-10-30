@@ -8,14 +8,19 @@
 import SwiftUI
 
 struct FavoritesView: View {
-    var viewModel: FavoritesViewModel
+    @ObservedObject var viewModel: FavoritesViewModel
     var body: some View {
-        Text("FavoritesView")
+        VStack{
+            Text("matko")
+            }
+        }
+        
     }
-}
+    
+
 
 struct FavoritesView_Previews: PreviewProvider {
     static var previews: some View {
-        FavoritesView(viewModel: .init())
+        FavoritesView(viewModel: .init(persistenceService: PersistanceService()))
     }
 }

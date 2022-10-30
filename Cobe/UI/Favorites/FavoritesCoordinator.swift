@@ -31,7 +31,7 @@ class FavoritesCoordinator: Coordinator {
     }
     
     private func makeViewController(with tabBarItem: UITabBarItem) -> UIViewController {
-        let vm = FavoritesViewModel()
+        let vm = FavoritesViewModel(persistenceService: PersistanceService())
         let vc = UIHostingController(rootView: FavoritesView(viewModel: vm))
         vc.tabBarItem = tabBarItem
         return vc
