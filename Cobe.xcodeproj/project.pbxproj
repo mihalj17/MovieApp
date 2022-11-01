@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4733559229100148008CBFD9 /* FavoriteMovieCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4733559129100148008CBFD9 /* FavoriteMovieCard.swift */; };
 		47438A6329019CC1003419B5 /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47438A6229019CC1003419B5 /* DetailsView.swift */; };
 		47438A6529019D48003419B5 /* DetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47438A6429019D48003419B5 /* DetailsViewModel.swift */; };
 		47438A6929019D5F003419B5 /* DetailsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47438A6829019D5F003419B5 /* DetailsCoordinator.swift */; };
@@ -60,6 +61,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4733559129100148008CBFD9 /* FavoriteMovieCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteMovieCard.swift; sourceTree = "<group>"; };
 		47438A6229019CC1003419B5 /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
 		47438A6429019D48003419B5 /* DetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewModel.swift; sourceTree = "<group>"; };
 		47438A6829019D5F003419B5 /* DetailsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsCoordinator.swift; sourceTree = "<group>"; };
@@ -125,6 +127,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4733558E291000D0008CBFD9 /* SubView */ = {
+			isa = PBXGroup;
+			children = (
+				4733559129100148008CBFD9 /* FavoriteMovieCard.swift */,
+			);
+			path = SubView;
+			sourceTree = "<group>";
+		};
 		47438A6129019468003419B5 /* Details */ = {
 			isa = PBXGroup;
 			children = (
@@ -281,6 +291,7 @@
 		47D44C8528FEA673003E51F3 /* Favorites */ = {
 			isa = PBXGroup;
 			children = (
+				4733558E291000D0008CBFD9 /* SubView */,
 				47D44C9E28FEB6F7003E51F3 /* FavoritesView.swift */,
 				47D44CA028FEB706003E51F3 /* FavoritesViewModel.swift */,
 				47D44CA428FEB71A003E51F3 /* FavoritesCoordinator.swift */,
@@ -430,6 +441,7 @@
 				47D44C9928FEACF2003E51F3 /* SearchViewModel.swift in Sources */,
 				47438A6929019D5F003419B5 /* DetailsCoordinator.swift in Sources */,
 				47A195AB29000A8B00973B87 /* DataServiceError.swift in Sources */,
+				4733559229100148008CBFD9 /* FavoriteMovieCard.swift in Sources */,
 				47BF20BD290E98550096667B /* MovieData.swift in Sources */,
 				474CD5AF290863BE00201C5B /* ScheduleDetailsView.swift in Sources */,
 				474CD5A62908513300201C5B /* CastAPIService.swift in Sources */,

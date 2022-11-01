@@ -26,22 +26,6 @@ struct HomeView: View {
                                     viewModel.getCastInfo(show.id)
                                     viewModel.onGoToDetails?(show,viewModel.cast)
                                 }
-                                ZStack{
-                            Rectangle()
-                                .frame(width: 30, height: 30)
-                                .clipShape(RoundedRectangle(cornerRadius: 5))
-                                .background(Color("DarkGray"))
-                                .overlay {
-                                    RoundedRectangle(cornerRadius: 5)
-                                        .stroke(Color("LightGray"), lineWidth: 1)
-                                }
-                                .onTapGesture{
-                                    viewModel.toggleFav(show)
-                                }
-                                
-                            Image(systemName: "heart.fill")
-                                .foregroundColor(.white)
-                            }
                         }
                             
                         }
@@ -68,22 +52,6 @@ struct HomeView: View {
                                         viewModel.getCastInfo(scheduleShow.show.id)
                                         viewModel.onGoToDetails?(scheduleShow,viewModel.cast)
                                     }
-                                ZStack{
-                                Rectangle()
-                                    .frame(width: 30, height: 30)
-                                    .clipShape(RoundedRectangle(cornerRadius: 5))
-                                    .background(Color("DarkGray"))
-                                    .overlay {
-                                        RoundedRectangle(cornerRadius: 5)
-                                            .stroke(Color("LightGray"), lineWidth: 1)
-                                    }
-                                    .onTapGesture{
-                                        
-                                    }
-                                
-                                Image(systemName: "heart.fill")
-                                    .foregroundColor(.white)
-                            }
                             }
                         }
                     }

@@ -10,10 +10,10 @@ import Foundation
 
 final class PersistanceService: PersistenceServiceProtocol {
     
-    var movieData: MovieDataArray?{
+    var movieData: MovieData{
         
         get{
-            UserDefaults.standard.load()
+            UserDefaults.standard.load() ?? MovieData.defaultData
         }
         set{
             UserDefaults.standard.save(newValue)

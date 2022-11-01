@@ -10,16 +10,38 @@ import SwiftUI
 
 struct MovieCardView: View {
     var show: ShowsAPIResponse
+    @ObservedObject  var  viewModel = HomeViewModel<Any>(ShowsApiService: ShowsAPIService(),ScheduleApiService: ScheduleAPIService(), CastApiService: CastAPIService(), PersistenceService: PersistanceService())
     var body: some View {
         VStack() {
-            VStack{
+            ZStack(alignment: .topLeading){
             AsyncImage(url: show.image.medium) {  image in
                 image.resizable().scaledToFit()
             } placeholder: {
                 Color.gray
                 
             }
-            
+                ZStack{
+                Rectangle()
+                    .frame(width: 30, height: 30)
+                    .clipShape(RoundedRectangle(cornerRadius: 5))
+                    .background(Color("DarkGray"))
+                    .overlay {
+                        RoundedRectangle(cornerRadius: 5)
+                            .stroke(Color("LightGray"), lineWidth: 1)
+                    }
+                    .onTapGesture{
+                        viewModel.toggleFavShow(show)
+                    }
+                
+                    if viewModel.isFavorite {
+                        Image(systemName: "heart.fill")
+                            .foregroundColor(.yellow)
+                    } else {
+                        Image(systemName:"heart" )
+                            .foregroundColor(Color("LightGray"))
+                        
+                    }
+                }
             
             }
             

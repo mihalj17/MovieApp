@@ -22,7 +22,7 @@ class HomeViewModel<T>: ObservableObject{
     @Published  var movies = [ShowsAPIResponse]()
     @Published var scheduleMovies = [ScheduleAPIResponse]()
     @Published var cast = [CastAPIResponse]()
-    @Published var isFavorite = false
+    @Published var isFavorite = Bool()
     
     
     init(ShowsApiService: ShowsAPIServiceProtocol, ScheduleApiService: ScheduleAPIServiceProtocol, CastApiService: CastAPIServiceProtocol, PersistenceService: PersistenceServiceProtocol ){
@@ -86,24 +86,61 @@ func emptyCast(){
         
     }
     
+//    func contains(where predicate: (Self.Element) throws -> Bool) rethrows -> Bool
     
-//    func contains(_ item: MovieData) -> Bool {
-//        ((PersistenceService.movieData?.movies.contains(item.isFavorite))
-//        }
+    func contains(_ movie: MovieData.MovieDataItem) -> Bool {
+        let favoritedMovies = PersistenceService.movieData.movies
+        for movieItem in favoritedMovies {
+            if  movieItem.id == movie.id{
+                return true
+            }
+
+        }
+           return false
+        }
+        
     
-    func toggleFav(_ movie: ShowsAPIResponse){
-//        let newFavoriteMovieData =  PersistenceService.
+    func toggleFavShow(_ movie: ShowsAPIResponse){
+        let newfavoriteMovie = PersistenceService.movieData.movieDataItem.createMovieDataItemFromShowAPIResponse(movie)
+        var favoritedMovies = PersistenceService.movieData.movies
+
+        if contains(newfavoriteMovie){
+            if let movieIndex = favoritedMovies.firstIndex(where: {$0.id == movie.id}){
+                favoritedMovies.remove(at: movieIndex)
+                isFavorite = false
+            }
+        }
+        else {
+            favoritedMovies.insert(newfavoriteMovie.self, at: 0)
+            isFavorite = true
+        }
         
-       
+        PersistenceService.movieData = MovieData(movies: favoritedMovies, movieDataItem: newfavoriteMovie)
         
         
-//        if contains(favorite){
-//            PersistenceService.movieData?.movies.remove(at: favorite.id)
-//        }
-//        else {
-//            PersistenceService.movieData?.movies.insert(favorite, at: 0)
-//        }
-//        PersistenceService.movieData = MovieData(id: favorite.id, imageMovie: favorite.imageMovie, isFavorite: isFavorite)
+
     }
+    
+    func toggleFavScheduleShow(_ movie: ScheduleAPIResponse){
+        let newfavoriteMovie = PersistenceService.movieData.movieDataItem.createMovieDataItemFromScheduleShowAPIResponse(movie)
+        var favoritedMovies = PersistenceService.movieData.movies
+
+        if contains(newfavoriteMovie){
+            if let movieIndex = favoritedMovies.firstIndex(where: {$0.id == movie.id}){
+                favoritedMovies.remove(at: movieIndex)
+                isFavorite = false
+            }
+        }
+        else {
+            favoritedMovies.insert(newfavoriteMovie.self, at: 0)
+            isFavorite = true
+        }
+        
+        PersistenceService.movieData = MovieData(movies: favoritedMovies, movieDataItem: newfavoriteMovie)
+        
+        
+
+    }
+
 
 }

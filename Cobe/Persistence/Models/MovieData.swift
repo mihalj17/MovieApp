@@ -8,21 +8,32 @@
 import Foundation
 
 
-struct MovieDataArray: Codable{
+struct MovieData: Codable{
     
-    let movies: [MovieData]
+    let movies: [MovieDataItem]
+    let movieDataItem: MovieDataItem
     
-    struct MovieData: Codable{
+    struct MovieDataItem: Codable{
     let id: Int
     let imageMovie: URL?
-    let isFavorite: Bool
-    }
     
-//    func fromShowToMovieData(_ movie : ShowsAPIResponse) -> MovieData{
-//        return MovieData(id: movie.id, imageMovie: movie.image.medium, isFavorite: isFavorite )
-//    }
+        func createMovieDataItemFromShowAPIResponse(_ movie: ShowsAPIResponse) -> MovieDataItem{
+           return  MovieDataItem(id: movie.id, imageMovie: movie.image.medium)
+        }
+        func createMovieDataItemFromScheduleShowAPIResponse(_ movie: ScheduleAPIResponse) -> MovieDataItem{
+            return  MovieDataItem(id: movie.id, imageMovie: movie.show.image?.medium)
+        }
+    }
+    static var defaultData: Self {
+        MovieData(movies: [], movieDataItem: MovieDataItem(id: 0, imageMovie: URL(string: "")))
+    }
+}
+    
+   
+    
+    
     
     
 
     
-}
+
