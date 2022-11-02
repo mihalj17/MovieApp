@@ -14,7 +14,7 @@ final class SearchAPIService: SearchAPIServiceProtocol {
     init(){}
     func fetchShow(from searchString: String,completionHandler: @escaping (Result<[SearchAPIResponse], Error>) -> Void) {
         guard let url = URL(string: "https://api.tvmaze.com/search/shows?q=\(searchString)") else {
-        return completionHandler(.failure(ScheduleAPIError.badURLName))
+        return completionHandler(.failure(DataServiceError.badURL))
     }
         dataService.fetchJSON(from: url, completionHandler: completionHandler)
     }

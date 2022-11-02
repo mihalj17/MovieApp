@@ -13,12 +13,10 @@
 		47438A6929019D5F003419B5 /* DetailsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47438A6829019D5F003419B5 /* DetailsCoordinator.swift */; };
 		474C62DB2901486B00795656 /* ScheduleAPIServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474C62DA2901486B00795656 /* ScheduleAPIServiceProtocol.swift */; };
 		474C62DD2901488000795656 /* ScheduleAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474C62DC2901488000795656 /* ScheduleAPIService.swift */; };
-		474C62DF2901488C00795656 /* ScheduleAPIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474C62DE2901488C00795656 /* ScheduleAPIError.swift */; };
 		474C62E329014B9B00795656 /* ScheduleAPIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474C62E229014B9A00795656 /* ScheduleAPIResponse.swift */; };
 		474CD5A42908512200201C5B /* CastAPIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474CD5A32908512200201C5B /* CastAPIResponse.swift */; };
 		474CD5A62908513300201C5B /* CastAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474CD5A52908513300201C5B /* CastAPIService.swift */; };
 		474CD5A82908514100201C5B /* CastApiServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474CD5A72908514100201C5B /* CastApiServiceProtocol.swift */; };
-		474CD5AA2908515300201C5B /* CastAPIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474CD5A92908515300201C5B /* CastAPIError.swift */; };
 		474CD5AC2908632100201C5B /* ShowDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474CD5AB2908632100201C5B /* ShowDetailsView.swift */; };
 		474CD5AF290863BE00201C5B /* ScheduleDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474CD5AE290863BE00201C5B /* ScheduleDetailsView.swift */; };
 		474CD5B22909509000201C5B /* MovieCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474CD5B12909509000201C5B /* MovieCardView.swift */; };
@@ -32,7 +30,6 @@
 		47A195B229000D5A00973B87 /* ShowsAPIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A195B129000D5A00973B87 /* ShowsAPIResponse.swift */; };
 		47A195B429000D6700973B87 /* ShowsAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A195B329000D6700973B87 /* ShowsAPIService.swift */; };
 		47A195B629000D7600973B87 /* ShowsApiServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A195B529000D7600973B87 /* ShowsApiServiceProtocol.swift */; };
-		47A195B829000D8300973B87 /* ShowsAPIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A195B729000D8200973B87 /* ShowsAPIError.swift */; };
 		47A6DD2D29070D1A0024CCB9 /* AttributedText in Frameworks */ = {isa = PBXBuildFile; productRef = 47A6DD2C29070D1A0024CCB9 /* AttributedText */; };
 		47BF20BD290E98550096667B /* MovieData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47BF20BC290E98550096667B /* MovieData.swift */; };
 		47BF20BF290E98AC0096667B /* PersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47BF20BE290E98AC0096667B /* PersistenceService.swift */; };
@@ -57,7 +54,6 @@
 		47DF9CD62909DFCA00351A44 /* SearchAPIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47DF9CD52909DFCA00351A44 /* SearchAPIResponse.swift */; };
 		47DF9CD82909DFD400351A44 /* SearchAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47DF9CD72909DFD400351A44 /* SearchAPIService.swift */; };
 		47DF9CDA2909DFE200351A44 /* SearchAPIServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47DF9CD92909DFE200351A44 /* SearchAPIServiceProtocol.swift */; };
-		47DF9CDC2909DFEE00351A44 /* SearchAPIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47DF9CDB2909DFEE00351A44 /* SearchAPIError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,12 +63,10 @@
 		47438A6829019D5F003419B5 /* DetailsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsCoordinator.swift; sourceTree = "<group>"; };
 		474C62DA2901486B00795656 /* ScheduleAPIServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleAPIServiceProtocol.swift; sourceTree = "<group>"; };
 		474C62DC2901488000795656 /* ScheduleAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleAPIService.swift; sourceTree = "<group>"; };
-		474C62DE2901488C00795656 /* ScheduleAPIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleAPIError.swift; sourceTree = "<group>"; };
 		474C62E229014B9A00795656 /* ScheduleAPIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleAPIResponse.swift; sourceTree = "<group>"; };
 		474CD5A32908512200201C5B /* CastAPIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastAPIResponse.swift; sourceTree = "<group>"; };
 		474CD5A52908513300201C5B /* CastAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastAPIService.swift; sourceTree = "<group>"; };
 		474CD5A72908514100201C5B /* CastApiServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastApiServiceProtocol.swift; sourceTree = "<group>"; };
-		474CD5A92908515300201C5B /* CastAPIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastAPIError.swift; sourceTree = "<group>"; };
 		474CD5AB2908632100201C5B /* ShowDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowDetailsView.swift; sourceTree = "<group>"; };
 		474CD5AE290863BE00201C5B /* ScheduleDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleDetailsView.swift; sourceTree = "<group>"; };
 		474CD5B12909509000201C5B /* MovieCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCardView.swift; sourceTree = "<group>"; };
@@ -86,7 +80,6 @@
 		47A195B129000D5A00973B87 /* ShowsAPIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowsAPIResponse.swift; sourceTree = "<group>"; };
 		47A195B329000D6700973B87 /* ShowsAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowsAPIService.swift; sourceTree = "<group>"; };
 		47A195B529000D7600973B87 /* ShowsApiServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowsApiServiceProtocol.swift; sourceTree = "<group>"; };
-		47A195B729000D8200973B87 /* ShowsAPIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowsAPIError.swift; sourceTree = "<group>"; };
 		47BF20BC290E98550096667B /* MovieData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieData.swift; sourceTree = "<group>"; };
 		47BF20BE290E98AC0096667B /* PersistenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceService.swift; sourceTree = "<group>"; };
 		47BF20C0290E98D20096667B /* PersistenceServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceServiceProtocol.swift; sourceTree = "<group>"; };
@@ -112,7 +105,6 @@
 		47DF9CD52909DFCA00351A44 /* SearchAPIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAPIResponse.swift; sourceTree = "<group>"; };
 		47DF9CD72909DFD400351A44 /* SearchAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAPIService.swift; sourceTree = "<group>"; };
 		47DF9CD92909DFE200351A44 /* SearchAPIServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAPIServiceProtocol.swift; sourceTree = "<group>"; };
-		47DF9CDB2909DFEE00351A44 /* SearchAPIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAPIError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,7 +144,6 @@
 				474C62E229014B9A00795656 /* ScheduleAPIResponse.swift */,
 				474C62DC2901488000795656 /* ScheduleAPIService.swift */,
 				474C62DA2901486B00795656 /* ScheduleAPIServiceProtocol.swift */,
-				474C62DE2901488C00795656 /* ScheduleAPIError.swift */,
 			);
 			path = ScheduleApi;
 			sourceTree = "<group>";
@@ -163,7 +154,6 @@
 				474CD5A32908512200201C5B /* CastAPIResponse.swift */,
 				474CD5A52908513300201C5B /* CastAPIService.swift */,
 				474CD5A72908514100201C5B /* CastApiServiceProtocol.swift */,
-				474CD5A92908515300201C5B /* CastAPIError.swift */,
 			);
 			path = CastApi;
 			sourceTree = "<group>";
@@ -210,7 +200,6 @@
 				47A195B129000D5A00973B87 /* ShowsAPIResponse.swift */,
 				47A195B329000D6700973B87 /* ShowsAPIService.swift */,
 				47A195B529000D7600973B87 /* ShowsApiServiceProtocol.swift */,
-				47A195B729000D8200973B87 /* ShowsAPIError.swift */,
 			);
 			path = ShowApi;
 			sourceTree = "<group>";
@@ -348,7 +337,6 @@
 				47DF9CD52909DFCA00351A44 /* SearchAPIResponse.swift */,
 				47DF9CD72909DFD400351A44 /* SearchAPIService.swift */,
 				47DF9CD92909DFE200351A44 /* SearchAPIServiceProtocol.swift */,
-				47DF9CDB2909DFEE00351A44 /* SearchAPIError.swift */,
 			);
 			path = SearchApi;
 			sourceTree = "<group>";
@@ -429,11 +417,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				474CD5AA2908515300201C5B /* CastAPIError.swift in Sources */,
-				47A195B829000D8300973B87 /* ShowsAPIError.swift in Sources */,
 				47DF9CDA2909DFE200351A44 /* SearchAPIServiceProtocol.swift in Sources */,
 				47DF9CD82909DFD400351A44 /* SearchAPIService.swift in Sources */,
-				474C62DF2901488C00795656 /* ScheduleAPIError.swift in Sources */,
 				47D44CA128FEB706003E51F3 /* FavoritesViewModel.swift in Sources */,
 				47A195B629000D7600973B87 /* ShowsApiServiceProtocol.swift in Sources */,
 				474C62E329014B9B00795656 /* ScheduleAPIResponse.swift in Sources */,
@@ -464,7 +449,6 @@
 				47A195AF29000AB700973B87 /* DataServiceProtocol.swift in Sources */,
 				474CD5B7290997AD00201C5B /* SearchMovieCardView.swift in Sources */,
 				474CD5B22909509000201C5B /* MovieCardView.swift in Sources */,
-				47DF9CDC2909DFEE00351A44 /* SearchAPIError.swift in Sources */,
 				47A195A929000A7C00973B87 /* ServiceFactory.swift in Sources */,
 				47A195AD29000AA200973B87 /* DataService.swift in Sources */,
 				474C62DB2901486B00795656 /* ScheduleAPIServiceProtocol.swift in Sources */,

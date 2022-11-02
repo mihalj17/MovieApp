@@ -20,24 +20,28 @@ final class SearchViewModel : ObservableObject{
     
     
     func getSearchMovie(_ movie: String){
-        
-            getSearchMovie.fetchShow(from: movie) { result in
-                switch(result){
-                case .success(let response):
-                    let castItem = response
-                    self.searchedMovies.insert(contentsOf: castItem, at: 0)
-                case .failure(let error):
-                    print("error \(error.localizedDescription)")
-                    
+        DispatchQueue.global(qos: .background).async { [weak self] in
+            guard let self = self else { return }
+            self.getSearchMovie.fetchShow(from: movie) { result in
+                DispatchQueue.main.async {
+                    switch(result){
+                    case .success(let response):
+                        let castItem = response
+                        self.searchedMovies.insert(contentsOf: castItem, at: 0)
+                    case .failure(let error):
+                        print("error \(error.localizedDescription)")
+                        
+                    }
                 }
             }
+        }
     }
     func emptySearchedCast(){
-            for _ in searchedMovies.enumerated().reversed() {
-                searchedMovies.removeAll()
-            }
-            
+        for _ in searchedMovies.enumerated().reversed() {
+            searchedMovies.removeAll()
         }
+        
+    }
 }
 
 

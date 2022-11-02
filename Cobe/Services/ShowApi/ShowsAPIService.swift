@@ -17,7 +17,7 @@ final class ShowsAPIService: ShowsAPIServiceProtocol {
     
     func fetchShow(completionHandler: @escaping (Result<[ShowsAPIResponse], Error>) -> Void) {
         guard let url = URL(string: "https://api.tvmaze.com/shows") else {
-        return completionHandler(.failure(ShowsAPIError.badURLName))
+        return completionHandler(.failure(DataServiceError.badURL))
     }
         dataService.fetchJSON(from: url, completionHandler: completionHandler)
     

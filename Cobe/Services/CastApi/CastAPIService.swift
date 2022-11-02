@@ -15,7 +15,7 @@ final class CastAPIService: CastAPIServiceProtocol {
     init(){}
     func fetchShow(from cast: Int, completionHandler: @escaping (Result<[CastAPIResponse], Error>) -> Void){
         guard let url = URL(string: "https://api.tvmaze.com/shows/\(cast)/cast") else {
-        return completionHandler(.failure(CastAPIError.badURLName))
+            return completionHandler(.failure(DataServiceError.badURL))
     }
         dataService.fetchJSON(from: url, completionHandler: completionHandler)
     }

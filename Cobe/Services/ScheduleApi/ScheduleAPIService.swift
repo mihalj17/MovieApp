@@ -13,7 +13,7 @@ final class ScheduleAPIService: ScheduleAPIServiceProtocol {
     init(){}
     func fetchShow(completionHandler: @escaping (Result<[ScheduleAPIResponse], Error>) -> Void) {
         guard let url = URL(string: "https://api.tvmaze.com/schedule?country=US&date=2014-12-01") else {
-        return completionHandler(.failure(ScheduleAPIError.badURLName))
+        return completionHandler(.failure(DataServiceError.badURL))
     }
         dataService.fetchJSON(from: url, completionHandler: completionHandler)
     }
