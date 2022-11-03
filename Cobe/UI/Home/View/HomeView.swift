@@ -43,7 +43,7 @@ struct HomeView: View {
                     .foregroundColor(.yellow)
                     
                 }
-                ScrollView(.horizontal, showsIndicators: false, content: {
+                ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 3){
                         ForEach(viewModel.scheduleMovies,id: \.id) { scheduleShow in
                             ZStack(alignment: .topLeading){
@@ -56,22 +56,25 @@ struct HomeView: View {
                         }
                     }
                     
-                })
+                }
+               
             }
             Spacer()
             Spacer()
         }
         .navigationBarHidden(true)
+        
         .onAppear {
             if count < 1 {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
                     viewModel.fetchShowInfo()
                     viewModel.fetchScheduleShowInfo()
-                    viewModel.emptyCast()
+                    viewModel.emptyCastArray()
                     count.self += 1
                 }
             }
             else { return }
+
         }
         
         .background(.black)

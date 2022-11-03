@@ -10,5 +10,5 @@ import Foundation
 
 protocol  PersistenceServiceProtocol: AnyObject{
     
-    var movieData: MovieData { get set }
+    var movieData: FavoriteMovieData { get set }
 }

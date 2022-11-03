@@ -32,17 +32,13 @@ struct ScheduleMovieCardView: View {
                             RoundedRectangle(cornerRadius: 5)
                                 .stroke(Color("LightGray"), lineWidth: 1)
                         }
-                        .onTapGesture{
-                            viewModel.toggleFavScheduleShow(scheduleShow)
-                        }
-                    
-                    if viewModel.isFavorite {
+                    Button {
+                        viewModel.toggleFavoriteScheduleShow(scheduleShow)
+                        viewModel.persistFavorite(viewModel.isFavoriteChecked)
+                    } label: {
                         Image(systemName: "heart.fill")
-                            .foregroundColor(.yellow)
-                    } else {
-                        Image(systemName:"heart" )
-                            .foregroundColor(Color("LightGray"))
-                        
+                            .foregroundColor(viewModel.isScheduleMovieinFavoriteArray(scheduleShow) ? Color.yellow : Color.gray)
+                            .font(.title3)
                     }
                 }
                 
@@ -64,6 +60,7 @@ struct ScheduleMovieCardView: View {
         }
         .background(Color("DarkGray"))
         .clipShape(RoundedRectangle(cornerRadius: 10))
+        
         
     }
     

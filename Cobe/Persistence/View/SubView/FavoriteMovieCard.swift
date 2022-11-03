@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct FavoriteMovieCard: View {
-    let favoriteMovie : MovieData.MovieDataItem
+    let favoriteMovie : FavoriteMovieData.Favorite
     @ObservedObject var viewModel =  FavoritesViewModel(PersistenceService: PersistanceService())
     var body: some View {
         VStack{
@@ -32,11 +32,19 @@ struct FavoriteMovieCard: View {
                         .stroke(Color("LightGray"), lineWidth: 1)
                 }
                 .onTapGesture {
-                    viewModel.toggleShow(favoriteMovie)
+                    viewModel.toggleFavorite(favoriteMovie)
+                    viewModel.persistFavorite(viewModel.isMovieSaved)
                     
                 }
-            Image(systemName: "heart.fill")
-                .foregroundColor(.yellow)
+                
+                if viewModel.checkFavoriteMovie(favoriteMovie){
+                    Image(systemName: "heart.fill")
+                        .foregroundColor(.yellow)
+                } else {
+                    Image(systemName:"heart" )
+                        .foregroundColor(Color("LightGray"))
+                    
+                }
         }
             
         }

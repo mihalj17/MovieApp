@@ -12,45 +12,44 @@ import SwiftUI
 
 
 
-class HomeCoordinator: Coordinator{
+ final class HomeCoordinator: Coordinator{
     
     var childCoordinator: Coordinator?
+    var navigationController: UINavigationController?
     
-    private var navigationController: UINavigationController!
-    var rootViewController: UIViewController {
-        return navigationController
+    init(navigationController: UINavigationController) {
+        self.navigationController = navigationController
     }
     
-    init(tabBarItem: UITabBarItem) {
-        super.init()
-        setupRootViewController(with: makeViewController(with: tabBarItem))
-        
+    func start() -> UIViewController {
+        return makeHomeViewController()
     }
-    private func setupRootViewController(with viewController: UIViewController){
-        navigationController = UINavigationController(rootViewController: viewController)
-        navigationController.delegate = self
-    }
-    
-    private func makeViewController(with tabBarItem: UITabBarItem) -> UIViewController {
+    private func makeHomeViewController() -> UIViewController {
         let vm = HomeViewModel<Any>(ShowsApiService: ShowsAPIService(),ScheduleApiService: ScheduleAPIService(), CastApiService: CastAPIService(), PersistenceService: PersistanceService())
         let vc = UIHostingController(rootView: HomeView(viewModel: vm))
-        vc.tabBarItem = tabBarItem
-        
-        
+        vc.tabBarItem = UITabBarItem(title: "Home", image: UIImage(systemName: "house"), selectedImage: UIImage(systemName: "house.fill"))
+
+
         vm.onGoToDetails = { [weak self] movie, cast  in
             self?.goToInfo(object: movie, cast: cast)
-            
+
         }
         return vc
     }
-    
+//
     private func goToInfo<T>(object: T, cast: [CastAPIResponse]){
+
+        let detailsCoordinator = DetailsCoordinator(data: object, cast: cast)
+        childCoordinator = detailsCoordinator
         
-        let detailsCoordinator = DetailsCoordinator(navigationController: navigationController, data: object, cast: cast)
-        childCoordinators.append(detailsCoordinator)
-        let detailsViewController = detailsCoordinator.makeController()
-        navigationController.pushViewController(detailsViewController, animated: true)
-                
+        detailsCoordinator.onDismissed = { [weak self] in
+            self?.navigationController?.popViewController(animated: true)
+            self?.childCoordinator = nil
+        }
+        
+        let detailsViewController = detailsCoordinator.start()
+        self.navigationController?.pushViewController(detailsViewController, animated: true)
+
     }
    
 }

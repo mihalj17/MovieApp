@@ -9,6 +9,8 @@ import Foundation
 
 class DetailsViewModel<T>: ObservableObject {
     
+    var onDismissed: (() -> Void)?
+    
     let data: T
     let cast: [CastAPIResponse]
     init(data: T, cast: [CastAPIResponse]){

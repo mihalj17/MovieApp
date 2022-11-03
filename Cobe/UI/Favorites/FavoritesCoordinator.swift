@@ -12,34 +12,19 @@ import SwiftUI
 
 
 
-class FavoritesCoordinator: Coordinator {
+final class FavoritesCoordinator: Coordinator {
+
+    private var navigationController = UINavigationController()
     
-    private var navigationController: UINavigationController!
-    
-    var rootViewController: UIViewController {
-        return navigationController
+    func start() -> UIViewController {
+        return makeFavoriteViewController()
     }
     
-    init(tabBarItem: UITabBarItem) {
-        super.init()
-        setupRootViewController(with: makeViewController(with: tabBarItem))
-        
-    }
-    private func setupRootViewController(with viewController: UIViewController){
-        navigationController = UINavigationController(rootViewController: viewController)
-        navigationController.delegate = self
-    }
-    
-    private func makeViewController(with tabBarItem: UITabBarItem) -> UIViewController {
+    private func makeFavoriteViewController() -> UIViewController {
         let vm = FavoritesViewModel(PersistenceService: PersistanceService())
         let vc = UIHostingController(rootView: FavoritesView(viewModel: vm))
-        vc.tabBarItem = tabBarItem
+        vc.tabBarItem = UITabBarItem(title: "Favorites", image: UIImage(systemName: "heart"), selectedImage: UIImage(systemName: "heart.fill"))
+        navigationController.pushViewController(vc, animated: true)
         return vc
     }
-    
-     override func start() {
-        
-    }
-    
-    
 }

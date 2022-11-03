@@ -10,73 +10,46 @@ import UIKit
 
 
 class RootCoordinator: Coordinator {
-    var rootViewController: UIViewController{
-        return tabBarController
+    
+    
+    
+    var navigationController = UINavigationController()
+    private var tabBarController = UITabBarController()
+    var childCoordinators = [Coordinator]()
+    
+    func start() -> UIViewController {
+        return TabBar()
     }
     
-    private let tabBarController = UITabBarController()
-    
-    override init() {
-        super.init()
+    func TabBar() -> UINavigationController{
+        childCoordinators = [
+            HomeCoordinator(navigationController: navigationController),
+            SearchCoordinator(),
+            FavoritesCoordinator()
+        ]
         setup()
+        navigationController.viewControllers = [tabBarController]
+        return navigationController
     }
-    
-    func setup(){
-        setupTabBarController()
-        setupCoordinators()
-    }
+        func setup(){
+            setupTabBarController()
+        }
     
     func setupTabBarController(){
+        tabBarController = UITabBarController()
+        let TabAppearance = UITabBarAppearance()
+        TabAppearance.configureWithTransparentBackground()
+        UITabBar.appearance().standardAppearance = TabAppearance
+        
         tabBarController.tabBar.tintColor = .yellow
         tabBarController.tabBar.backgroundColor = UIColor(red: 0.11, green: 0.11, blue: 0.11, alpha: 1.00)
-        tabBarController.tabBar.barTintColor = .lightGray
-        
-        
-        
-    }
-    func setupCoordinators(){
-        let homeCoordinator = makeHomeCoordinator()
-        let searchCoordinator = makeSearchCoordinator()
-        let favoritesCooordinator = makeFavoritesCoordinator()
-        
-        
-        
-        
-        tabBarController.viewControllers = [
-            homeCoordinator.rootViewController,
-            searchCoordinator.rootViewController,
-            favoritesCooordinator.rootViewController,
-            
-        ]
-        
-        childCoordinators.append(homeCoordinator)
-        childCoordinators.append(searchCoordinator)
-        childCoordinators.append(favoritesCooordinator)
-        
-        
-        
-        
-    }
-    
-    func makeHomeCoordinator() -> HomeCoordinator {
-        return HomeCoordinator(tabBarItem: UITabBarItem(title: "Home", image: UIImage(systemName: "house"), selectedImage: UIImage(systemName: "house.fill")))
-    }
-    
-    func makeSearchCoordinator() -> SearchCoordinator{
-        return SearchCoordinator(tabBarItem: UITabBarItem(title: "Search", image: UIImage(systemName: "magnifyingglass"), selectedImage: UIImage(systemName: "magnifyglass.fill")))
-    }
-    
-    func makeFavoritesCoordinator() -> FavoritesCoordinator{
-        return FavoritesCoordinator(tabBarItem: UITabBarItem(title: "Favorites", image: UIImage(systemName: "heart"), selectedImage: UIImage(systemName: "heart.fill")))
-    }
-    
-    
-    
-    override func start() {
-        childCoordinators.forEach{  (childCoordinators) in
-            childCoordinators.start()
-            
+        tabBarController.tabBar.unselectedItemTintColor = .lightGray
+        tabBarController.viewControllers = childCoordinators.map { coordinator in
+            coordinator.start()
         }
     }
-}
+    
+    }
+    
+
 

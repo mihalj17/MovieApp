@@ -8,24 +8,29 @@
 import Foundation
 
 
-struct MovieData: Codable{
+struct FavoriteMovieData: Codable{
     
-    let movies: [MovieDataItem]
-    let movieDataItem: MovieDataItem
+    let movies: [Favorite]
+    let movieDataItem: Favorite
+    var isChecked: Bool
     
-    struct MovieDataItem: Codable{
+    struct Favorite: Codable{
     let id: Int
     let imageMovie: URL?
     
-        func createMovieDataItemFromShowAPIResponse(_ movie: ShowsAPIResponse) -> MovieDataItem{
-           return  MovieDataItem(id: movie.id, imageMovie: movie.image.medium)
+        func createMovieDataItemFromShowAPIResponse(_ movie: ShowsAPIResponse) -> Favorite{
+           return  Favorite(id: movie.id, imageMovie: movie.image.medium)
         }
-        func createMovieDataItemFromScheduleShowAPIResponse(_ movie: ScheduleAPIResponse) -> MovieDataItem{
-            return  MovieDataItem(id: movie.id, imageMovie: movie.show.image?.medium)
+        func createMovieDataItemFromScheduleShowAPIResponse(_ movie: ScheduleAPIResponse) -> Favorite{
+            return  Favorite(id: movie.id, imageMovie: movie.show.image?.medium)
         }
     }
+    mutating func isChecked(_ bool: Bool) -> Bool {
+        isChecked = bool
+        return isChecked
+    }
     static var defaultData: Self {
-        MovieData(movies: [], movieDataItem: MovieDataItem(id: 0, imageMovie: URL(string: "")))
+        FavoriteMovieData(movies: [], movieDataItem: Favorite(id: 0, imageMovie: URL(string: "")), isChecked: false)
     }
 }
     

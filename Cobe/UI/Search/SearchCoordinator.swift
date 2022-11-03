@@ -11,33 +11,23 @@ import SwiftUI
 
 
 
-class SearchCoordinator: Coordinator {
+final class SearchCoordinator: Coordinator {
     
-    private var navigationController: UINavigationController!
-    var rootViewController: UIViewController {
-        return navigationController
+    private var navigationController = UINavigationController()
+
+    func start() -> UIViewController {
+        return makeSearchViewController()
     }
     
-    init(tabBarItem: UITabBarItem) {
-        super.init()
-        setupRootViewController(with: makeViewController(with: tabBarItem))
-        
-    }
-    private func setupRootViewController(with viewController: UIViewController){
-        navigationController = UINavigationController(rootViewController: viewController)
-        navigationController.delegate = self
-    }
-    
-    private func makeViewController(with tabBarItem: UITabBarItem) -> UIViewController {
+    private func makeSearchViewController() -> UIViewController {
         let vm = SearchViewModel(getSearchMovie: SearchAPIService())
         let vc = UIHostingController(rootView: SearchView(viewModel: vm))
-        vc.tabBarItem = tabBarItem
+        vc.tabBarItem = UITabBarItem(title: "Search", image: UIImage(systemName: "magnifyingglass"), selectedImage: UIImage(systemName: "magnifyingglass.fill"))
+        navigationController.pushViewController(vc, animated: true)
         return vc
     }
     
-    override func start() {
-        
-    }
+    
     
     
 }

@@ -24,7 +24,7 @@ struct FavoritesView: View {
                     }
                     
                     .onAppear {
-                        viewModel.load()
+                        viewModel.loadFavoriteArray()
                     }
                     
                 }

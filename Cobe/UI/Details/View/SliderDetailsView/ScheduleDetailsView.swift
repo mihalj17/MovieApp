@@ -9,15 +9,14 @@ import Foundation
 import SwiftUI
 import AttributedText
 
-struct ShowDetailsView: View {
-    let movie: ShowsAPIResponse
-    let cast: [CastAPIResponse]
+struct ScheduleDetailsView: View {
+    let schedule: ScheduleAPIResponse
+    let scheduleCast: [CastAPIResponse]
     
     var body: some View {
-        
         VStack{
             VStack{
-                AsyncImage(url: movie.image.medium,scale: 1){ image in
+                AsyncImage(url: schedule.show.image?.medium,scale: 1){ image in
                     image
                         .resizable()
                         .navigationBarHidden(true)
@@ -28,14 +27,16 @@ struct ShowDetailsView: View {
                 }
                 Spacer()
             }
+            .ignoresSafeArea()
             .background(.black)
             Spacer()
+            Spacer()
             VStack{
-                AttributedText(movie.summary)
+                AttributedText(schedule.show.summary ?? "no summary")
                     .foregroundColor(.gray)
                     .font(.system(size: 10))
                     .lineLimit(4)
-                
+
             }
             Spacer()
             VStack{
@@ -50,39 +51,37 @@ struct ShowDetailsView: View {
                 }
                 
                 ScrollView(.horizontal, showsIndicators: false, content: {
-                    HStack(spacing: 2){
-                        ForEach(cast, id: \.person?.id){ person in
-                            
-                                VStack{
-                                    AsyncImage(url: person.person?.image?.medium){ image in
-                                        image
-                                            .resizable()
-                                            .scaledToFit()
-                                            .aspectRatio(contentMode: .fill)
+                    HStack(spacing: 3){
+                        ForEach(scheduleCast, id: \.person?.id){ person in
+                            VStack{
+                                AsyncImage(url: person.person?.image?.medium){ image in
+                                    image
+                                        .resizable()
+                                        .scaledToFit()
+                                        .aspectRatio(contentMode: .fill)
                                         
                                         
-                                        
-                                    } placeholder: {
-                                        Color.gray
-                                    }
                                     
-                                }.frame(width: 100, height: 100)
+                                } placeholder: {
+                                    Color.gray
+                                }
+                            }.frame(width: 100, height: 100)
                             
                         }
-                        
-                        
+                            
+                    
+
                     }
                 })
                 
             }
             Spacer()
             Spacer()
-            
+                
         }
-        
+
         .background(.black)
-    }
-    
-    
+        }
 }
+
 
