@@ -9,8 +9,12 @@ import Foundation
 import SwiftUI
 
 struct MovieCardView: View {
+    
     var show: ShowsAPIResponse
+    
+    @State private var progress = 0.6
     @ObservedObject  var  viewModel = HomeViewModel<Any>(ShowsApiService: ShowsAPIService(),ScheduleApiService: ScheduleAPIService(), CastApiService: CastAPIService(), PersistenceService: PersistanceService())
+    
     var body: some View {
         VStack() {
             ZStack(alignment: .topLeading){

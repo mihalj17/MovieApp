@@ -23,7 +23,8 @@ struct ShowDetailsView: View {
                         .aspectRatio(contentMode: .fill)
                     
                 } placeholder: {
-                    Color.gray
+                    ProgressView()
+                        .progressViewStyle(.linear)
                 }
                 Spacer()
             }

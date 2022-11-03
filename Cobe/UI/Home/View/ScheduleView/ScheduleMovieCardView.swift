@@ -5,13 +5,17 @@
 //  Created by Matko Mihaljl on 26.10.2022..
 //
 
-import Foundation
+
 import SwiftUI
 
 struct ScheduleMovieCardView: View {
+    
+    @State private var progress = 0.6
     @ObservedObject  var  viewModel = HomeViewModel<Any>(ShowsApiService: ShowsAPIService(),ScheduleApiService: ScheduleAPIService(), CastApiService: CastAPIService(), PersistenceService: PersistanceService())
+    
     var scheduleShow: ScheduleAPIResponse
     let dateFormatter = DateFormatter()
+    
     var body: some View {
         VStack{
             
@@ -21,7 +25,6 @@ struct ScheduleMovieCardView: View {
                     image.resizable().scaledToFit()
                 } placeholder: {
                     Color.gray
-                    
                 }
                 ZStack{
                     Rectangle()

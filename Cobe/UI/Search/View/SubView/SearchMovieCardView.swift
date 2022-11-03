@@ -51,5 +51,6 @@ struct SearchMovieCardView: View {
             
         }
         
+        
     }
 }
