@@ -18,29 +18,19 @@ struct FavoritesView: View {
                         LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 5) {
                             ForEach(viewModel.favoritedMovies, id: \.id){ filteredMovie in
                                 FavoriteMovieCard(favoriteMovie: filteredMovie)
-                                
+                                    .onTapGesture {
+                                        viewModel.getActorsData(viewModel.createShows(filteredMovie).id)
+                                        viewModel.onGoToDetails?(viewModel.createShows(filteredMovie), viewModel.actors)
+                                    }
                             }
                         }
                     }
-                    
                     .onAppear {
                         viewModel.loadFavoriteArray()
                     }
-                    
                 }
-                
-                
-            
-            
         }
         .navigationBarHidden(true)
     }
-        
-    
 }
 
-struct FavoritesView_Previews: PreviewProvider {
-    static var previews: some View {
-        FavoritesView(viewModel: .init(PersistenceService: PersistanceService()))
-    }
-}

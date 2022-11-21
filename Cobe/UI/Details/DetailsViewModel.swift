@@ -13,11 +13,11 @@ class DetailsViewModel<T>: ObservableObject {
     
     let data: T
     let cast: [CastAPIResponse]
+    @Published var isMovieSaved = Bool()
+//    @Published var favoritedMovies = [FavoriteMovieData.Favorite]()
     init(data: T, cast: [CastAPIResponse]){
-        
         self.data = data
         self.cast = cast
-        
     }
 }
 

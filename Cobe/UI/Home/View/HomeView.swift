@@ -2,7 +2,7 @@
 import SwiftUI
 
 struct HomeView: View {
-    @ObservedObject  var  viewModel = HomeViewModel<Any>(ShowsApiService: ShowsAPIService(),ScheduleApiService: ScheduleAPIService(), CastApiService: CastAPIService(), PersistenceService: PersistanceService())
+    @ObservedObject var viewModel = HomeViewModel<Any>(ShowsApiService: ShowsAPIService(),ScheduleApiService: ScheduleAPIService(), CastApiService: CastAPIService(), PersistenceService: PersistanceService())
     @State var count = 0
     var body: some View {
         VStack{
@@ -12,21 +12,20 @@ struct HomeView: View {
                         .foregroundColor(.gray)
                     Spacer()
                     Button("show all"){
-                        
                     }
                     .foregroundColor(.yellow)
                     
                 }
                 ScrollView(.horizontal, showsIndicators: false, content: {
                     HStack(spacing: 3){
-                        ForEach(viewModel.movies,id: \.id) { show in
+                        ForEach(viewModel.movies.prefix(11),id: \.id) { show in
                             ZStack(alignment: .topLeading){
-                            MovieCardView(show: show)
-                                .onTapGesture {
-                                    viewModel.getCastInfo(show.id)
-                                    viewModel.onGoToDetails?(show,viewModel.cast)
-                                }
-                        }
+                                MovieCardView(show: show)
+                                    .onTapGesture {
+                                        viewModel.getCastInfo(show.id)
+                                        viewModel.onGoToDetails?(show,viewModel.cast)
+                                    }
+                            }
                             
                         }
                     }
@@ -45,7 +44,7 @@ struct HomeView: View {
                 }
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 3){
-                        ForEach(viewModel.scheduleMovies,id: \.id) { scheduleShow in
+                        ForEach(viewModel.scheduleMovies.prefix(11),id: \.id) { scheduleShow in
                             ZStack(alignment: .topLeading){
                                 ScheduleMovieCardView(scheduleShow: scheduleShow)
                                     .onTapGesture {
@@ -57,28 +56,19 @@ struct HomeView: View {
                     }
                     
                 }
-               
+                
             }
             Spacer()
             Spacer()
         }
         .navigationBarHidden(true)
-        
-        .onAppear {
-            if count < 1 {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-                    viewModel.fetchShowInfo()
-                    viewModel.fetchScheduleShowInfo()
-                    viewModel.emptyCastArray()
-                    count.self += 1
-                }
-            }
-            else { return }
-
+        .onAppear()
+        {
+            viewModel.fetchShowInfo()
+            viewModel.fetchScheduleShowInfo()
+            viewModel.emptyCastArray()
         }
-        
         .background(.black)
-        
     }
     
     

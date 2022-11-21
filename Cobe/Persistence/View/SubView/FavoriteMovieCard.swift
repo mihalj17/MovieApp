@@ -9,7 +9,7 @@ import SwiftUI
 
 struct FavoriteMovieCard: View {
     let favoriteMovie : FavoriteMovieData.Favorite
-    @ObservedObject var viewModel =  FavoritesViewModel(PersistenceService: PersistanceService())
+    @ObservedObject var viewModel =  FavoritesViewModel(PersistenceService: PersistanceService(),castAPIService: CastAPIService(),showsAPIResponse: ShowsAPIResponse.defaultData)
     var body: some View {
         VStack{
         ZStack(alignment: .topLeading){

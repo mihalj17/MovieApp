@@ -52,7 +52,7 @@ struct ScheduleDetailsView: View {
                 
                 ScrollView(.horizontal, showsIndicators: false, content: {
                     HStack(spacing: 3){
-                        ForEach(scheduleCast, id: \.person?.id){ person in
+                        ForEach(scheduleCast.prefix(8), id: \.person?.id){ person in
                             VStack{
                                 AsyncImage(url: person.person?.image?.medium){ image in
                                     image

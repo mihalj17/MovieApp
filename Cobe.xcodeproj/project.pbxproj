@@ -339,8 +339,8 @@
 		47FC3D3029127D2000D3F0B9 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				474CD5AD290863A400201C5B /* SliderDetailsView */,
 				47438A6229019CC1003419B5 /* DetailsView.swift */,
+				474CD5AD290863A400201C5B /* SliderDetailsView */,
 			);
 			path = View;
 			sourceTree = "<group>";

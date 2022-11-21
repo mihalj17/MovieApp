@@ -19,6 +19,7 @@ struct SearchAPIResponse: Codable{
         let genres: [String]
         let premiered:  String
         let image: Image
+        let summary: String
     }
     
     struct Image: Codable{

@@ -15,7 +15,6 @@ import SwiftUI
 final class DetailsCoordinator<T>: Coordinator {
     
     var onDismissed: (()-> Void)?
-    
     let data: T
     let cast: [CastAPIResponse]
     
@@ -26,7 +25,7 @@ final class DetailsCoordinator<T>: Coordinator {
     
     func start() -> UIViewController {
         let vm = DetailsViewModel<T>(data: data, cast: cast)
-        let vc = UIHostingController(rootView: DetailsView(viewModel: vm))
+        let vc = UIHostingController(rootView: DetailsView<T>(viewModel: vm))
         
         vm.onDismissed = { [weak self] in
             self?.onDismissed?()

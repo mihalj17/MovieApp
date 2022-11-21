@@ -59,7 +59,7 @@ struct ShowDetailsView: View {
                 VStack{
                 ScrollView(.horizontal, showsIndicators: false, content: {
                     HStack(spacing: 2){
-                        ForEach(cast, id: \.person?.id){ person in
+                        ForEach(cast.prefix(8), id: \.person?.id){ person in
                             
                                 VStack{
                                     AsyncImage(url: person.person?.image?.medium){ image in

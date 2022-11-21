@@ -24,8 +24,8 @@ class RootCoordinator: Coordinator {
     func TabBar() -> UINavigationController{
         childCoordinators = [
             HomeCoordinator(navigationController: navigationController),
-            SearchCoordinator(),
-            FavoritesCoordinator()
+            SearchCoordinator(navigationController: navigationController),
+            FavoritesCoordinator(),
         ]
         setup()
         navigationController.viewControllers = [tabBarController]

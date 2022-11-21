@@ -15,14 +15,15 @@ struct FavoriteMovieData: Codable{
     var isChecked: Bool
     
     struct Favorite: Codable{
-    let id: Int
-    let imageMovie: URL?
-    
+        let id: Int
+        let imageMovie: URL?
+        let summary: String
+        
         func createMovieDataItemFromShowAPIResponse(_ movie: ShowsAPIResponse) -> Favorite{
-           return  Favorite(id: movie.id, imageMovie: movie.image.medium)
+            return  Favorite(id: movie.id, imageMovie: movie.image.medium, summary: movie.summary)
         }
         func createMovieDataItemFromScheduleShowAPIResponse(_ movie: ScheduleAPIResponse) -> Favorite{
-            return  Favorite(id: movie.id, imageMovie: movie.show.image?.medium)
+            return  Favorite(id: movie.id, imageMovie: movie.show.image?.medium, summary: movie.show.summary ?? "X")
         }
     }
     mutating func isChecked(_ bool: Bool) -> Bool {
@@ -30,15 +31,15 @@ struct FavoriteMovieData: Codable{
         return isChecked
     }
     static var defaultData: Self {
-        FavoriteMovieData(movies: [], movieDataItem: Favorite(id: 0, imageMovie: URL(string: "")), isChecked: false)
+        FavoriteMovieData(movies: [], movieDataItem: Favorite(id: 0, imageMovie: URL(string: ""), summary: ""), isChecked: false)
     }
 }
-    
-   
-    
-    
-    
-    
 
-    
+
+
+
+
+
+
+
 

@@ -10,19 +10,25 @@ import Foundation
 
 final class SearchViewModel : ObservableObject{
     
-    private let getSearchMovie: SearchAPIServiceProtocol
+    private let castAPIService: CastAPIServiceProtocol
+    private let searchApiService: SearchAPIServiceProtocol
+    private let showsAPIResponse: ShowsAPIResponse
+    
+    var onGoToDetails: ((_ movie: ShowsAPIResponse, _ cast: [CastAPIResponse]) -> Void)?
+    
+    @Published  var actors = [CastAPIResponse]()
     @Published  var searchedMovies = [SearchAPIResponse]()
     
-    init(getSearchMovie: SearchAPIServiceProtocol){
-        self.getSearchMovie = getSearchMovie
-        
+    init(searchApiService: SearchAPIServiceProtocol, castAPIService: CastAPIServiceProtocol,showsAPIResponse: ShowsAPIResponse ){
+        self.searchApiService = searchApiService
+        self.castAPIService = castAPIService
+        self.showsAPIResponse = showsAPIResponse
     }
-    
     
     func getSearchMovie(_ movie: String){
         DispatchQueue.global(qos: .background).async { [weak self] in
             guard let self = self else { return }
-            self.getSearchMovie.fetchShow(from: movie) { result in
+            self.searchApiService.fetchShow(from: movie) { result in
                 DispatchQueue.main.async {
                     switch(result){
                     case .success(let response):
@@ -41,6 +47,22 @@ final class SearchViewModel : ObservableObject{
             searchedMovies.removeAll()
         }
         
+    }
+    func createShows(_ movie: SearchAPIResponse) -> ShowsAPIResponse{
+        let show = showsAPIResponse.createShowApiResponseFromSearch(movie)
+        return show
+    }
+    
+    func getActorsData(_ movie: Int){
+        self.castAPIService.fetchShow(from: movie) { result in
+            switch(result){
+            case .success(let response):
+                let cast = response
+                self.actors.insert(contentsOf: cast, at: 0)
+            case .failure(let error):
+                print("error  \(error.localizedDescription)")
+            }
+        }
     }
 }
 

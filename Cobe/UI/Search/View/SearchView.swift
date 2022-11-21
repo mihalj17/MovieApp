@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SearchView: View {
-    @ObservedObject  var  viewModel = SearchViewModel(getSearchMovie: SearchAPIService())
+    @ObservedObject  var  viewModel = SearchViewModel(searchApiService: SearchAPIService(),castAPIService: CastAPIService(), showsAPIResponse: ShowsAPIResponse.defaultData)
     @State private var searchString = ""
     var body: some View {
         NavigationView{
@@ -19,16 +19,37 @@ struct SearchView: View {
                         .resizable()
                         .scaledToFit()
                     VStack {
+                        HStack {
+                            TextField("Search shows", text: $searchString)
+                            
+                                .padding(.horizontal, 40)
+                                .frame(height: 45, alignment: .leading)
+                                .background(Color("LightGray"))
+                                .foregroundColor(.white)
+                                .clipped()
+                                .cornerRadius(10)
+                                .overlay {
+                                    Image(systemName: "magnifyingglass")
+                                        .foregroundColor(.white)
+                                        .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+                                        .padding(.leading, 16)
+                                    
+                                }
+                        }
                         
                         ScrollView {
                             ForEach(viewModel.searchedMovies, id: \.show.id) { show in
                                 SearchMovieCardView(searchMovie: show)
+                                    .onTapGesture {
+                                        viewModel.getActorsData(viewModel.createShows(show).id)
+                                        viewModel.onGoToDetails?(viewModel.createShows(show), viewModel.actors)
+                                        
+                                    }
                             }
                             
                         }
                     }
                 }
-                .padding(.top,8)
                 .padding(.bottom,10)
                 .background(.black)
                 .searchable(text: $searchString)
@@ -44,20 +65,12 @@ struct SearchView: View {
                     
                 })
             }
+            .navigationBarHidden(true)
         }
-        .navigationBarHidden(true)
+        
     }
 }
 
-
-
-
-
-struct SearchView_Previews: PreviewProvider {
-    static var previews: some View {
-        SearchView(viewModel: .init(getSearchMovie: SearchAPIService()))
-    }
-}
 
 
 
